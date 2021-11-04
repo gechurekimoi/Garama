@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Garama.Views.AboutPage"
+             xmlns:vm="clr-namespace:Garama.ViewModels"
+             Title="{Binding Title}"
+             BackgroundColor="{StaticResource Background}"
+             Shell.NavBarIsVisible="False"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:tabView="clr-namespace:Syncfusion.XForms.TabView;assembly=Syncfusion.SfTabView.XForms">
+
+    <ContentPage.BindingContext>
+        <vm:AboutViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Accent">#96d1ff</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout >
+
+
+        <tabView:SfTabView BackgroundColor="{StaticResource Background}" 
+                           VerticalOptions="FillAndExpand"
+                           >
+            
+            <tabView:SfTabItem Title="Transactions">
+                <tabView:SfTabItem.Content>
+                    <Grid BackgroundColor="Red" x:Name="AllContactsGrid" />
+                </tabView:SfTabItem.Content>
+            </tabView:SfTabItem>
+            
+            <tabView:SfTabItem Title="Income">
+                <tabView:SfTabItem.Content>
+                    <Grid BackgroundColor="Green" x:Name="FavoritesGrid" />
+                </tabView:SfTabItem.Content>
+            </tabView:SfTabItem>
+            
+            <tabView:SfTabItem Title="Budget">
+                <tabView:SfTabItem.Content>
+                    <Grid BackgroundColor="Blue" x:Name="ContactsGrid" />
+                </tabView:SfTabItem.Content>
+            </tabView:SfTabItem>
+            
+        </tabView:SfTabView>
+
+        <!--<StackLayout Margin="20">
+
+            <Frame CornerRadius="7" BackgroundColor="{StaticResource Secondary}"
+                   HeightRequest="120">
+                <Grid ColumnDefinitions="0.6*,0.4*"
+                      VerticalOptions="CenterAndExpand">
+                    <StackLayout Grid.Column="0" Spacing="0">
+
+                        <Label Text="Total Spent" Style="{StaticResource RegularLabel}" />
+                        <Label Text="Ksh 20,000" Style="{StaticResource BoldLabel}" FontSize="30"  />
+
+                    </StackLayout>
+
+
+                    <StackLayout Grid.Column="1">
+                        <Label Text="Lipa na Mpesa"  
+                               HorizontalOptions="EndAndExpand"
+                               Style="{StaticResource BoldLabel}"
+                               TextColor="#368751"/>
+                    </StackLayout>
+                </Grid>
+            </Frame>
+
+            <Label Text="Budget"  Style="{StaticResource BoldLabel}" FontSize="20"/>
+
+            <Frame CornerRadius="5" Padding="5"
+                   HasShadow="False">
+
+                <Grid ColumnDefinitions="0.15*,0.8*"
+                      VerticalOptions="CenterAndExpand"
+                      ColumnSpacing="0">
+
+                    <xct:AvatarView Text="FO" Source="{Binding AvatarSource}"
+                                    Grid.Column="0"
+                                    VerticalOptions="CenterAndExpand"
+                                    HorizontalOptions="CenterAndExpand"
+                                    HeightRequest="40"
+                                    WidthRequest="40"/>
+
+                    <StackLayout Orientation="Horizontal" 
+                                 HorizontalOptions="FillAndExpand" Grid.Column="1"
+                                 VerticalOptions="CenterAndExpand">
+
+                        <Label Text="Food" HorizontalOptions="StartAndExpand"
+                               Style="{StaticResource MediumLabel}"
+                               VerticalOptions="CenterAndExpand"
+                               FontSize="18"/>
+
+                        <Label Text="KES. 1000" HorizontalOptions="EndAndExpand"
+                               Style="{StaticResource MediumLabel}"
+                               VerticalOptions="CenterAndExpand"
+                               FontSize="18"/>
+
+                    </StackLayout>
+
+                </Grid>
+
+            </Frame>
+
+            <Frame CornerRadius="5" Padding="5"  HasShadow="False">
+
+                <Grid ColumnDefinitions="0.15*,0.8*"
+                      VerticalOptions="CenterAndExpand"
+                      ColumnSpacing="0">
+
+                    <xct:AvatarView Text="RE" Source="{Binding AvatarSource}"
+                                    Grid.Column="0"
+                                    VerticalOptions="CenterAndExpand"
+                                    HorizontalOptions="CenterAndExpand"
+                                    HeightRequest="40"
+                                    WidthRequest="40"/>
+
+                    <StackLayout Orientation="Horizontal" 
+                                 HorizontalOptions="FillAndExpand" Grid.Column="1"
+                                 VerticalOptions="CenterAndExpand">
+
+                        <Label Text="Rent" HorizontalOptions="StartAndExpand" Style="{StaticResource MediumLabel}"
+                               VerticalOptions="CenterAndExpand"
+                               FontSize="18"/>
+
+                        <Label Text="KES. 1000" HorizontalOptions="EndAndExpand"
+                               Style="{StaticResource MediumLabel}"
+                               VerticalOptions="CenterAndExpand"
+                               FontSize="18"/>
+
+                    </StackLayout>
+
+                </Grid>
+
+            </Frame>
+
+            <Frame CornerRadius="5" Padding="5"  HasShadow="False">
+
+                <Grid ColumnDefinitions="0.15*,0.8*"
+                      VerticalOptions="CenterAndExpand"
+                      ColumnSpacing="0">
+
+                    <xct:AvatarView Text="TR" Source="{Binding AvatarSource}"
+                                    Grid.Column="0"
+                                    VerticalOptions="CenterAndExpand"
+                                    HorizontalOptions="CenterAndExpand"
+                                    HeightRequest="40"
+                                    WidthRequest="40"/>
+
+                    <StackLayout Orientation="Horizontal" 
+                                 HorizontalOptions="FillAndExpand" Grid.Column="1"
+                                 VerticalOptions="CenterAndExpand">
+
+                        <Label Text="Transport" HorizontalOptions="StartAndExpand" Style="{StaticResource MediumLabel}"
+                               VerticalOptions="CenterAndExpand"
+                               FontSize="18"/>
+
+                        <Label Text="KES. 1000" HorizontalOptions="EndAndExpand"
+                               Style="{StaticResource MediumLabel}"
+                               VerticalOptions="CenterAndExpand"
+                               FontSize="18"/>
+
+                    </StackLayout>
+
+                </Grid>
+
+            </Frame>
+
+            <Frame CornerRadius="5" Padding="5"  HasShadow="False">
+
+                <Grid ColumnDefinitions="0.15*,0.8*"
+                      VerticalOptions="CenterAndExpand"
+                      ColumnSpacing="0">
+
+                    <xct:AvatarView Text="SH" Source="{Binding AvatarSource}"
+                                    Grid.Column="0"
+                                    VerticalOptions="CenterAndExpand"
+                                    HorizontalOptions="CenterAndExpand"
+                                    HeightRequest="40"
+                                    WidthRequest="40"/>
+
+                    <StackLayout Orientation="Horizontal" 
+                                 HorizontalOptions="FillAndExpand" Grid.Column="1"
+                                 VerticalOptions="CenterAndExpand">
+
+                        <Label Text="Shopping" HorizontalOptions="StartAndExpand" Style="{StaticResource MediumLabel}"
+                               VerticalOptions="CenterAndExpand"
+                               FontSize="18"/>
+
+                        <Label Text="KES. 1000" HorizontalOptions="EndAndExpand"
+                               Style="{StaticResource MediumLabel}"
+                               VerticalOptions="CenterAndExpand"
+                               FontSize="18"/>
+
+                    </StackLayout>
+
+                </Grid>
+
+            </Frame>
+
+
+            <Frame CornerRadius="5" Padding="5"  HasShadow="False">
+
+                <Grid ColumnDefinitions="0.15*,0.8*"
+                      VerticalOptions="CenterAndExpand"
+                      ColumnSpacing="0">
+
+                    <xct:AvatarView Text="SV" Source="{Binding AvatarSource}"
+                                    Grid.Column="0"
+                                    VerticalOptions="CenterAndExpand"
+                                    HorizontalOptions="CenterAndExpand"
+                                    HeightRequest="40"
+                                    WidthRequest="40"/>
+
+                    <StackLayout Orientation="Horizontal" 
+                                 HorizontalOptions="FillAndExpand" Grid.Column="1"
+                                 VerticalOptions="CenterAndExpand">
+
+                        <Label Text="Savings" HorizontalOptions="StartAndExpand" Style="{StaticResource MediumLabel}"
+                               VerticalOptions="CenterAndExpand"
+                               FontSize="18"/>
+
+                        <Label Text="KES. 1000" HorizontalOptions="EndAndExpand"
+                               Style="{StaticResource MediumLabel}"
+                               VerticalOptions="CenterAndExpand"
+                               FontSize="18"/>
+
+                    </StackLayout>
+
+                </Grid>
+
+            </Frame>
+
+
+
+        </StackLayout>-->
+
+
+    </StackLayout>
+
+</ContentPage>
