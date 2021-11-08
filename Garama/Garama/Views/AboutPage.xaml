@@ -24,9 +24,21 @@
 
         <tabView:SfTabView BackgroundColor="{StaticResource Background}" 
                            VerticalOptions="FillAndExpand"
+                           TabHeaderPosition="Bottom"
+                           VisibleHeaderCount="5"
                            >
             
-            <tabView:SfTabItem Title="Transactions">
+            <tabView:SfTabItem  >
+
+                <tabView:SfTabItem.HeaderContent>
+                    <Grid>
+                        <Image Source="home"
+                               VerticalOptions="CenterAndExpand"
+                               HorizontalOptions="CenterAndExpand"
+                               HeightRequest="20"/>
+                    </Grid>
+                </tabView:SfTabItem.HeaderContent>
+                
                 <tabView:SfTabItem.Content>
                     <Grid BackgroundColor="Red" x:Name="AllContactsGrid" />
                 </tabView:SfTabItem.Content>
