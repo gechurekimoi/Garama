@@ -10,10 +10,12 @@
             <Color x:Key="Primary">#2196F3</Color>
             <Color x:Key="Background">#FEF6E9</Color>
             <Color x:Key="Secondary">#F3C06F</Color>
+            <Color x:Key="DefaultTextColor">#080808</Color>
+            <Color x:Key="Accent">#96d1ff</Color>
 
 
             <Style TargetType="Label" x:Key="DefaultLabel">
-                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="TextColor" Value="{StaticResource DefaultTextColor}" />
             </Style>
 
 
