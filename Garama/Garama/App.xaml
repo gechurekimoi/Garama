@@ -32,13 +32,16 @@
             </Style>
 
             <Style TargetType="Button">
-                <Setter Property="TextColor" Value="White"></Setter>
+                
+                <Setter Property="TextColor" Value="{StaticResource DefaultTextColor}"></Setter>
+                <Setter Property="FontFamily" Value="RigaMedium"></Setter>
+                
                 <Setter Property="VisualStateManager.VisualStateGroups">
                     <VisualStateGroupList>
                         <VisualStateGroup x:Name="CommonStates">
                             <VisualState x:Name="Normal">
                                 <VisualState.Setters>
-                                    <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
+                                    <Setter Property="BackgroundColor" Value="{StaticResource Secondary}" />
                                 </VisualState.Setters>
                             </VisualState>
                             <VisualState x:Name="Disabled">

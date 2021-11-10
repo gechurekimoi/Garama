@@ -8,7 +8,8 @@
              Shell.NavBarIsVisible="False"
              xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              xmlns:tabView="clr-namespace:Syncfusion.XForms.TabView;assembly=Syncfusion.SfTabView.XForms"
-             xmlns:contentView="clr-namespace:Garama.ContentViews.Home">
+             xmlns:contentView="clr-namespace:Garama.ContentViews.Home"
+             xmlns:ExpensesView="clr-namespace:Garama.ContentViews.Expenses">
 
    
 
@@ -17,6 +18,7 @@
     </ContentPage.BindingContext>
 
     <ContentPage.Resources>
+        
         <ResourceDictionary>
          
             
@@ -45,27 +47,54 @@
 
     <StackLayout >
 
+        <StackLayout Margin="20">
+
+            <Label Text="Category"
+               Style="{StaticResource MediumLabel}"
+               />
+
+            <Entry />
+
+
+            <Label Text="Date"
+               Style="{StaticResource MediumLabel}"
+               />
+
+            <Entry />
+
+            <Label Text="Amount"
+               Style="{StaticResource MediumLabel}"
+               />
+
+            <Entry />
+
+        </StackLayout>
+        
+        
        
-        <tabView:SfTabView BackgroundColor="{StaticResource Background}" 
+
+
+        <!--<tabView:SfTabView BackgroundColor="{StaticResource Background}" 
                            VerticalOptions="FillAndExpand"
                            TabHeaderPosition="Bottom"
                            VisibleHeaderCount="5"
                            TabHeaderBackgroundColor="{StaticResource Secondary}"
                            >
 
-
             <tabView:SfTabView.SelectionIndicatorSettings>
+                
                 <tabView:SelectionIndicatorSettings
                     Color="{StaticResource DefaultTextColor}" 
                     Position="Top" 
                     StrokeThickness="2"/>
+                
             </tabView:SfTabView.SelectionIndicatorSettings>
 
+            
             <tabView:SfTabItem >
 
                 <tabView:SfTabItem.HeaderContent >
-                    <StackLayout Style="{StaticResource TabViewStackLayout}"
-                                >
+                    <StackLayout Style="{StaticResource TabViewStackLayout}" >
                         
                         <Image Source="home"
                              Style="{StaticResource TabViewIcon}"/>
@@ -74,6 +103,7 @@
                               Style="{StaticResource TabViewLabel}"/>
                         
                     </StackLayout>
+                    
                 </tabView:SfTabItem.HeaderContent>
 
 
@@ -104,7 +134,7 @@
                 </tabView:SfTabItem.HeaderContent>
                 
                 <tabView:SfTabItem.Content>
-                    <Grid BackgroundColor="Green"  />
+                    <ExpensesView:ExpenseListView />
                 </tabView:SfTabItem.Content>
                 
             </tabView:SfTabItem>
@@ -177,7 +207,9 @@
 
 
           
-        </tabView:SfTabView>
+        </tabView:SfTabView>-->
+
+      
 
       
 

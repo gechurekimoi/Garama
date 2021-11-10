@@ -44,14 +44,17 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Syncfusion.Licensing" Version="18.4.0.39" />
-    <PackageReference Include="Syncfusion.Xamarin.SfTabView" Version="18.4.0.39" />
+    <PackageReference Include="Syncfusion.Licensing" Version="19.2.0.44" />
+    <PackageReference Include="Syncfusion.Xamarin.SfTabView" Version="19.2.0.44" />
     <PackageReference Include="Xamarin.CommunityToolkit" Version="1.3.0" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />  
     <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="ContentViews\Expenses\ExpenseListView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="ContentViews\Home\HomeContentView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

@@ -15,6 +15,7 @@
                              VerticalOptions="CenterAndExpand">
 
                         <Label Text="Total Spent" Style="{StaticResource RegularLabel}" />
+                        
                         <Label Text="Ksh 20,000" Style="{StaticResource BoldLabel}" FontSize="30"  />
 
                     </StackLayout>
