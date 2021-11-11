@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Garama.Styles.LabelStyles"
+                      xmlns:styles="clr-namespace:Garama.Styles">
+
+    <ResourceDictionary.MergedDictionaries>
+        <styles:ColorStyles />
+    </ResourceDictionary.MergedDictionaries>
+
+
+    <Style TargetType="Label" x:Key="DefaultLabel">
+        <Setter Property="TextColor" Value="{StaticResource DefaultTextColor}" />
+    </Style>
+
+
+    <Style TargetType="Label" x:Key="RegularLabel" BasedOn="{StaticResource DefaultLabel}">
+        <Setter Property="FontFamily" Value="RigaScreenRegular" />
+    </Style>
+
+    <Style TargetType="Label" x:Key="MediumLabel" BasedOn="{StaticResource DefaultLabel}">
+        <Setter Property="FontFamily" Value="RigaMedium" />
+    </Style>
+
+    <Style TargetType="Label" x:Key="BoldLabel" BasedOn="{StaticResource DefaultLabel}">
+        <Setter Property="FontFamily" Value="RigaBold" />
+    </Style>
+
+
+
+
+</ResourceDictionary>

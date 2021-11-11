@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Garama.Views.AddExpensePage"
+               xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+              xmlns:ListCollection="clr-namespace:System.Collections.Generic;assembly=netstandard"
+             xmlns:customRender="clr-namespace:Garama.CustomRenders" 
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms">
+    <ContentPage.Content>
+        <StackLayout Margin="20" Spacing="30">
+
+          
+            <StackLayout>
+
+                <Label Text="Category"
+               Style="{StaticResource MediumLabel}"
+               />
+
+                <ScrollView
+                            Margin="0"
+                            Padding="0"
+                            HorizontalScrollBarVisibility="Never"
+                            Orientation="Horizontal"
+                            VerticalOptions="Start">
+                    <buttons:SfChipGroup 
+				ChipPadding="0" 
+				ChoiceMode="Single"
+                  Type="Choice"
+                    SelectedChipBackgroundColor="{StaticResource Secondary}"
+                    SelectedChipTextColor="{StaticResource DefaultTextColor}"
+                >
+                        <buttons:SfChipGroup.ItemsSource>
+                            <ListCollection:List x:TypeArguments="x:String">
+
+                                <x:String>Transport</x:String>
+                                <x:String>Food</x:String>
+                                <x:String>Rent</x:String>
+                                <x:String>Electricity</x:String>
+                                <x:String>Electricity</x:String>
+                                <x:String>Electricity</x:String>
+                            </ListCollection:List>
+                        </buttons:SfChipGroup.ItemsSource>
+
+                        <buttons:SfChipGroup.ChipLayout>
+                            <StackLayout
+                                        Margin="0"
+                                        Padding="5"
+                                        HorizontalOptions="FillAndExpand"
+                                        Orientation="Horizontal"
+                                        Spacing="10"
+                                        VerticalOptions="FillAndExpand" />
+                        </buttons:SfChipGroup.ChipLayout>
+                    </buttons:SfChipGroup>
+                </ScrollView>
+
+            </StackLayout>
+
+
+
+            <StackLayout>
+
+                <Label Text="Date"
+               Style="{StaticResource MediumLabel}"
+               />
+
+                <border:SfBorder Style="{StaticResource sfBorder}" VerticalOptions="Start">
+
+                    <customRender:DatePickerNoBorder
+                        Margin="10,0,0,0"
+                                           HeightRequest="45"
+                                           Format="dd-MMM-yyyy"
+                                           Style="{StaticResource BorderlessEntry}"
+                                           />
+
+                </border:SfBorder>
+
+            </StackLayout>
+
+
+            <StackLayout>
+
+                <Label Text="Amount"
+               Style="{StaticResource MediumLabel}"
+               />
+
+                <border:SfBorder Style="{StaticResource sfBorder}" VerticalOptions="Start">
+
+                    <customRender:EntryNoBorder
+                                           HeightRequest="45"
+                                           Keyboard="Numeric"
+                                           Style="{StaticResource BorderlessEntry}"
+                                           />
+
+                </border:SfBorder>
+
+            </StackLayout>
+
+
+
+            <Button Text="Save Expense"
+                    />
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

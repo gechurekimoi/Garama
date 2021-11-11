@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Garama.Styles.OtherStyles"  
+             xmlns:styles="clr-namespace:Garama.Styles"
+             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+             >
+
+    <ResourceDictionary.MergedDictionaries>
+        <styles:ColorStyles />
+    </ResourceDictionary.MergedDictionaries>
+
+
+    <Style x:Key="sfBorder" TargetType="border:SfBorder">
+        <Setter Property="Padding" Value="5,0,5,0" />
+        <Setter Property="BorderColor" Value="{StaticResource Secondary}" />
+        <Setter Property="BorderWidth" Value="0.5" />
+        <Setter Property="CornerRadius" Value="10" />
+        <Setter Property="Margin" Value="0,5,0,5" />
+    </Style>
+
+
+</ResourceDictionary>

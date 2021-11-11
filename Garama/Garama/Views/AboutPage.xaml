@@ -9,19 +9,22 @@
              xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              xmlns:tabView="clr-namespace:Syncfusion.XForms.TabView;assembly=Syncfusion.SfTabView.XForms"
              xmlns:contentView="clr-namespace:Garama.ContentViews.Home"
-             xmlns:ExpensesView="clr-namespace:Garama.ContentViews.Expenses">
+             xmlns:ExpensesView="clr-namespace:Garama.ContentViews.Expenses"
+             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+              xmlns:ListCollection="clr-namespace:System.Collections.Generic;assembly=netstandard"
+             xmlns:customRender="clr-namespace:Garama.CustomRenders" xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms">
 
-   
+
 
     <ContentPage.BindingContext>
         <vm:AboutViewModel />
     </ContentPage.BindingContext>
 
     <ContentPage.Resources>
-        
+
         <ResourceDictionary>
-         
-            
+
+
             <Style TargetType="StackLayout" x:Key="TabViewStackLayout">
                 <Setter Property="Spacing" Value="0" ></Setter>
                 <Setter Property="Padding" Value="5" ></Setter>
@@ -42,39 +45,18 @@
             </Style>
 
         </ResourceDictionary>
-        
+
     </ContentPage.Resources>
 
     <StackLayout >
 
-        <StackLayout Margin="20">
-
-            <Label Text="Category"
-               Style="{StaticResource MediumLabel}"
-               />
-
-            <Entry />
+      
 
 
-            <Label Text="Date"
-               Style="{StaticResource MediumLabel}"
-               />
-
-            <Entry />
-
-            <Label Text="Amount"
-               Style="{StaticResource MediumLabel}"
-               />
-
-            <Entry />
-
-        </StackLayout>
-        
-        
-       
 
 
-        <!--<tabView:SfTabView BackgroundColor="{StaticResource Background}" 
+
+        <tabView:SfTabView BackgroundColor="{StaticResource Background}" 
                            VerticalOptions="FillAndExpand"
                            TabHeaderPosition="Bottom"
                            VisibleHeaderCount="5"
@@ -207,11 +189,11 @@
 
 
           
-        </tabView:SfTabView>-->
+        </tabView:SfTabView>
 
-      
 
-      
+
+
 
 
     </StackLayout>

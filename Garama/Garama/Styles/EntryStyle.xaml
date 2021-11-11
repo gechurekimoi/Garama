@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Garama.Styles.EntryStyle"
+             xmlns:customRender="clr-namespace:Garama.CustomRenders"
+              xmlns:styles="clr-namespace:Garama.Styles">
+
+    <ResourceDictionary.MergedDictionaries>
+        <styles:ColorStyles />
+    </ResourceDictionary.MergedDictionaries>
+
+
+
+    <Style x:Key="DefaultEntry" TargetType="Entry">
+        <Setter Property="FontFamily" Value="RigaMedium" />
+        <Setter Property="TextColor" Value="{StaticResource DefaultTextColor}" />
+
+        <Setter Property="VisualStateManager.VisualStateGroups">
+            <VisualStateGroupList>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualState x:Name="Normal">
+                        <VisualState.Setters>
+                            <Setter Property="TextColor" Value="{StaticResource DefaultTextColor}" />
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState x:Name="Disabled">
+                        <VisualState.Setters>
+                            <Setter Property="TextColor" Value="{StaticResource DefaultTextColor}" />
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateGroupList>
+        </Setter>
+
+
+    </Style>
+
+    <Style
+        x:Key="BorderlessEntry"
+        BasedOn="{StaticResource DefaultEntry}"
+        TargetType="customRender:EntryNoBorder">
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="ClearButtonVisibility" Value="WhileEditing" />
+        <Setter Property="FontSize" Value="15" />
+        <Setter Property="HeightRequest" Value="40" />
+        <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+    </Style>
+
+</ResourceDictionary>

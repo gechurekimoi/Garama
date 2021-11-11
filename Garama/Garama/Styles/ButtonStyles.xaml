@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Garama.Styles.ButtonStyles"  
+                    xmlns:styles="clr-namespace:Garama.Styles"
+                    >
+
+    <ResourceDictionary.MergedDictionaries>
+        <styles:ColorStyles />
+    </ResourceDictionary.MergedDictionaries>
+
+
+    <Style TargetType="Button">
+
+        <Setter Property="TextColor" Value="{StaticResource DefaultTextColor}"></Setter>
+        <Setter Property="FontFamily" Value="RigaMedium"></Setter>
+        <Setter Property="CornerRadius" Value="10"></Setter>
+        <Setter Property="FontSize" Value="15"></Setter>
+
+        <Setter Property="VisualStateManager.VisualStateGroups">
+            <VisualStateGroupList>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualState x:Name="Normal">
+                        <VisualState.Setters>
+                            <Setter Property="BackgroundColor" Value="{StaticResource Secondary}" />
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState x:Name="Disabled">
+                        <VisualState.Setters>
+                            <Setter Property="BackgroundColor" Value="#332196F3" />
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateGroupList>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>
