@@ -10,9 +10,11 @@
              xmlns:tabView="clr-namespace:Syncfusion.XForms.TabView;assembly=Syncfusion.SfTabView.XForms"
              xmlns:contentView="clr-namespace:Garama.ContentViews.Home"
              xmlns:ExpensesView="clr-namespace:Garama.ContentViews.Expenses"
+             xmlns:IncomeView="clr-namespace:Garama.ContentViews.Income"
              xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
               xmlns:ListCollection="clr-namespace:System.Collections.Generic;assembly=netstandard"
-             xmlns:customRender="clr-namespace:Garama.CustomRenders" xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms">
+             xmlns:customRender="clr-namespace:Garama.CustomRenders" 
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms">
 
 
 
@@ -50,7 +52,8 @@
 
     <StackLayout >
 
-      
+
+     
 
 
 
@@ -138,7 +141,7 @@
                 </tabView:SfTabItem.HeaderContent>
 
                 <tabView:SfTabItem.Content>
-                    <Grid BackgroundColor="Green"  />
+                    <IncomeView:IncomeList />
                 </tabView:SfTabItem.Content>
 
             </tabView:SfTabItem>
