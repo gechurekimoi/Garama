@@ -50,10 +50,11 @@
 
     </ContentPage.Resources>
 
-    <StackLayout >
+    <StackLayout Margin="0,25,0,0">
+
+      
 
 
-     
 
 
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Garama.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,18 @@ namespace Garama.ContentViews.Income
         public IncomeList()
         {
             InitializeComponent();
+        }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            try
+            {
+                App.Current.MainPage.Navigation.PushModalAsync(new AddIncomePage());
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
     }
 }

@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Garama.Views.AddIncomePage"
+             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+             xmlns:ListCollection="clr-namespace:System.Collections.Generic;assembly=netstandard"
+             xmlns:customRender="clr-namespace:Garama.CustomRenders" 
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms">
+    <ContentPage.Content>
+        <StackLayout Margin="20" Spacing="30">
+
+            <StackLayout>
+
+                <Label Text="Date"
+               Style="{StaticResource MediumLabel}"
+               />
+
+                <border:SfBorder Style="{StaticResource sfBorder}" VerticalOptions="Start">
+
+                    <customRender:DatePickerNoBorder
+                        Margin="{OnPlatform Android='10,0,0,0'}"
+                                           HeightRequest="45"
+                                           Format="dd-MMM-yyyy"
+                                           Style="{StaticResource BorderlessEntry}"
+                                           />
+
+                </border:SfBorder>
+
+            </StackLayout>
+
+            <StackLayout>
+
+                <Label Text="Amount"
+               Style="{StaticResource MediumLabel}"
+               />
+
+                <border:SfBorder Style="{StaticResource sfBorder}" VerticalOptions="Start">
+
+                    <customRender:EntryNoBorder
+                                           HeightRequest="45"
+                                           Keyboard="Numeric"
+                                           Style="{StaticResource BorderlessEntry}"
+                                           />
+
+                </border:SfBorder>
+
+            </StackLayout>
+
+
+
+            <Button Text="Save Income"
+                    />
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

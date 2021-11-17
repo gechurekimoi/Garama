@@ -7,7 +7,7 @@
         <AbsoluteLayout HorizontalOptions="FillAndExpand"
                         VerticalOptions="FillAndExpand">
 
-            <StackLayout Padding="0" 
+            <StackLayout Padding="0,40,0,0" 
                          AbsoluteLayout.LayoutFlags="All"
                          AbsoluteLayout.LayoutBounds="1,1,1,1"
                          >
@@ -369,105 +369,16 @@
 
                 </Grid>
 
-                <Grid ColumnDefinitions="0.25*,0.55*,0.2*"
-                  
-                  Padding="5">
 
-                    <Label Text="11-Nov-2021" 
-                       Style="{StaticResource RegularLabel}" 
-                       Grid.Column="0"
-                       HorizontalOptions="StartAndExpand"/>
-
-                    <Label Text="Transport From home to office" 
-                       Style="{StaticResource RegularLabel}" 
-                       Grid.Column="1"
-                        HorizontalOptions="StartAndExpand"/>
-
-                    <Label Text="Ksh 5,000" 
-                       Style="{StaticResource RegularLabel}" 
-                       Grid.Column="2"
-                        HorizontalOptions="EndAndExpand"/>
-
-
-
-                </Grid>
-
-                <Grid ColumnDefinitions="0.25*,0.55*,0.2*"
-                  
-                  Padding="5">
-
-                    <Label Text="11-Nov-2021" 
-                       Style="{StaticResource RegularLabel}" 
-                       Grid.Column="0"
-                       HorizontalOptions="StartAndExpand"/>
-
-                    <Label Text="Transport From home to office" 
-                       Style="{StaticResource RegularLabel}" 
-                       Grid.Column="1"
-                        HorizontalOptions="StartAndExpand"/>
-
-                    <Label Text="Ksh 5,000" 
-                       Style="{StaticResource RegularLabel}" 
-                       Grid.Column="2"
-                        HorizontalOptions="EndAndExpand"/>
-
-
-
-                </Grid>
-
-                <Grid ColumnDefinitions="0.25*,0.55*,0.2*"
-                  
-                  Padding="5">
-
-                    <Label Text="11-Nov-2021" 
-                       Style="{StaticResource RegularLabel}" 
-                       Grid.Column="0"
-                       HorizontalOptions="StartAndExpand"/>
-
-                    <Label Text="Transport From home to office" 
-                       Style="{StaticResource RegularLabel}" 
-                       Grid.Column="1"
-                        HorizontalOptions="StartAndExpand"/>
-
-                    <Label Text="Ksh 5,000" 
-                       Style="{StaticResource RegularLabel}" 
-                       Grid.Column="2"
-                        HorizontalOptions="EndAndExpand"/>
-
-
-
-                </Grid>
-
-                <Grid ColumnDefinitions="0.25*,0.55*,0.2*"
-                  
-                  Padding="5">
-
-                    <Label Text="11-Nov-2021" 
-                       Style="{StaticResource RegularLabel}" 
-                       Grid.Column="0"
-                       HorizontalOptions="StartAndExpand"/>
-
-                    <Label Text="Transport From home to office" 
-                       Style="{StaticResource RegularLabel}" 
-                       Grid.Column="1"
-                        HorizontalOptions="StartAndExpand"/>
-
-                    <Label Text="Ksh 5,000" 
-                       Style="{StaticResource RegularLabel}" 
-                       Grid.Column="2"
-                        HorizontalOptions="EndAndExpand"/>
-
-
-
-                </Grid>
+               
 
             </StackLayout>
 
 
             <Button Text="+"
-                    CornerRadius="60"
-                    HeightRequest="60"
-                    WidthRequest="60"
+                    CornerRadius="{OnPlatform Android=60,iOS=35}"
+                    HeightRequest="{OnPlatform Android=60,iOS=70}"
+                    WidthRequest="{OnPlatform Android=60,iOS=70}"
                     FontSize="25"
                     AbsoluteLayout.LayoutFlags="PositionProportional"
                     AbsoluteLayout.LayoutBounds="0.95,0.95"
