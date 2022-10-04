@@ -50,16 +50,10 @@
 
     </ContentPage.Resources>
 
-    <StackLayout Margin="0,25,0,0">
+    
+    <StackLayout Margin="0,20,0,0">
 
       
-
-
-
-
-
-
-
         <tabView:SfTabView BackgroundColor="{StaticResource Background}" 
                            VerticalOptions="FillAndExpand"
                            TabHeaderPosition="Bottom"

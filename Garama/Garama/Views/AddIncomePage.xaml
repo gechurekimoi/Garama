@@ -1,28 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Garama.Views.AddIncomePage"
-             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
-             xmlns:ListCollection="clr-namespace:System.Collections.Generic;assembly=netstandard"
-             xmlns:customRender="clr-namespace:Garama.CustomRenders" 
-             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms">
+<ContentPage
+    x:Class="Garama.Views.AddIncomePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ListCollection="clr-namespace:System.Collections.Generic;assembly=netstandard"
+    xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+    xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+    xmlns:customRender="clr-namespace:Garama.CustomRenders">
     <ContentPage.Content>
         <StackLayout Margin="20" Spacing="30">
-
+            <Image
+                Margin="0,15,0,0"
+                HeightRequest="20"
+                HorizontalOptions="EndAndExpand"
+                Source="close"
+                VerticalOptions="Start">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                </Image.GestureRecognizers>
+            </Image>
             <StackLayout>
 
-                <Label Text="Date"
-               Style="{StaticResource MediumLabel}"
-               />
+                <Label Style="{StaticResource MediumLabel}" Text="Date" />
 
                 <border:SfBorder Style="{StaticResource sfBorder}" VerticalOptions="Start">
 
                     <customRender:DatePickerNoBorder
                         Margin="{OnPlatform Android='10,0,0,0'}"
-                                           HeightRequest="45"
-                                           Format="dd-MMM-yyyy"
-                                           Style="{StaticResource BorderlessEntry}"
-                                           />
+                        Format="dd-MMM-yyyy"
+                        HeightRequest="45"
+                        Style="{StaticResource BorderlessEntry}" />
 
                 </border:SfBorder>
 
@@ -30,17 +37,14 @@
 
             <StackLayout>
 
-                <Label Text="Amount"
-               Style="{StaticResource MediumLabel}"
-               />
+                <Label Style="{StaticResource MediumLabel}" Text="Amount" />
 
                 <border:SfBorder Style="{StaticResource sfBorder}" VerticalOptions="Start">
 
                     <customRender:EntryNoBorder
-                                           HeightRequest="45"
-                                           Keyboard="Numeric"
-                                           Style="{StaticResource BorderlessEntry}"
-                                           />
+                        HeightRequest="45"
+                        Keyboard="Numeric"
+                        Style="{StaticResource BorderlessEntry}" />
 
                 </border:SfBorder>
 
@@ -48,8 +52,7 @@
 
 
 
-            <Button Text="Save Income"
-                    />
+            <Button Text="Save Income" />
 
         </StackLayout>
     </ContentPage.Content>

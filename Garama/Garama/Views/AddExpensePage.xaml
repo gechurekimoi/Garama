@@ -1,34 +1,43 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Garama.Views.AddExpensePage"
-             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
-             xmlns:ListCollection="clr-namespace:System.Collections.Generic;assembly=netstandard"
-             xmlns:customRender="clr-namespace:Garama.CustomRenders" 
-             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms">
+<ContentPage
+    x:Class="Garama.Views.AddExpensePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ListCollection="clr-namespace:System.Collections.Generic;assembly=netstandard"
+    xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+    xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+    xmlns:customRender="clr-namespace:Garama.CustomRenders">
     <ContentPage.Content>
         <StackLayout Margin="20" Spacing="30">
 
-          
-            <StackLayout Margin="0,50,0,0">
+            <Image
+                Margin="0,15,0,0"
+                HeightRequest="20"
+                HorizontalOptions="EndAndExpand"
+                Source="close"
+                VerticalOptions="Start">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                </Image.GestureRecognizers>
+            </Image>
 
-                <Label Text="Category"
-               Style="{StaticResource MediumLabel}"
-               />
+
+            <StackLayout Margin="0,-10,0,0">
+
+                <Label Style="{StaticResource MediumLabel}" Text="Category" />
 
                 <ScrollView
-                            Margin="0"
-                            Padding="0"
-                            HorizontalScrollBarVisibility="Never"
-                            Orientation="Horizontal"
-                            VerticalOptions="Start">
-                    <buttons:SfChipGroup 
-				ChipPadding="0" 
-				ChoiceMode="Single"
-                  Type="Choice"
-                    SelectedChipBackgroundColor="{StaticResource Secondary}"
-                    SelectedChipTextColor="{StaticResource DefaultTextColor}"
-                >
+                    Margin="0"
+                    Padding="0"
+                    HorizontalScrollBarVisibility="Never"
+                    Orientation="Horizontal"
+                    VerticalOptions="Start">
+                    <buttons:SfChipGroup
+                        ChipPadding="0"
+                        ChoiceMode="Single"
+                        SelectedChipBackgroundColor="{StaticResource Secondary}"
+                        SelectedChipTextColor="{StaticResource DefaultTextColor}"
+                        Type="Choice">
                         <buttons:SfChipGroup.ItemsSource>
                             <ListCollection:List x:TypeArguments="x:String">
 
@@ -36,19 +45,18 @@
                                 <x:String>Food</x:String>
                                 <x:String>Rent</x:String>
                                 <x:String>Electricity</x:String>
-                                <x:String>Electricity</x:String>
-                                <x:String>Electricity</x:String>
+
                             </ListCollection:List>
                         </buttons:SfChipGroup.ItemsSource>
 
                         <buttons:SfChipGroup.ChipLayout>
                             <StackLayout
-                                        Margin="0"
-                                        Padding="5"
-                                        HorizontalOptions="FillAndExpand"
-                                        Orientation="Horizontal"
-                                        Spacing="10"
-                                        VerticalOptions="FillAndExpand" />
+                                Margin="0"
+                                Padding="5"
+                                HorizontalOptions="FillAndExpand"
+                                Orientation="Horizontal"
+                                Spacing="10"
+                                VerticalOptions="FillAndExpand" />
                         </buttons:SfChipGroup.ChipLayout>
                     </buttons:SfChipGroup>
                 </ScrollView>
@@ -59,18 +67,15 @@
 
             <StackLayout>
 
-                <Label Text="Date"
-               Style="{StaticResource MediumLabel}"
-               />
+                <Label Style="{StaticResource MediumLabel}" Text="Date" />
 
                 <border:SfBorder Style="{StaticResource sfBorder}" VerticalOptions="Start">
 
                     <customRender:DatePickerNoBorder
                         Margin="{OnPlatform Android='10,0,0,0'}"
-                                           HeightRequest="45"
-                                           Format="dd-MMM-yyyy"
-                                           Style="{StaticResource BorderlessEntry}"
-                                           />
+                        Format="dd-MMM-yyyy"
+                        HeightRequest="45"
+                        Style="{StaticResource BorderlessEntry}" />
 
                 </border:SfBorder>
 
@@ -79,17 +84,14 @@
 
             <StackLayout>
 
-                <Label Text="Amount"
-               Style="{StaticResource MediumLabel}"
-               />
+                <Label Style="{StaticResource MediumLabel}" Text="Amount" />
 
                 <border:SfBorder Style="{StaticResource sfBorder}" VerticalOptions="Start">
 
                     <customRender:EntryNoBorder
-                                           HeightRequest="45"
-                                           Keyboard="Numeric"
-                                           Style="{StaticResource BorderlessEntry}"
-                                           />
+                        HeightRequest="45"
+                        Keyboard="Numeric"
+                        Style="{StaticResource BorderlessEntry}" />
 
                 </border:SfBorder>
 
@@ -97,8 +99,7 @@
 
 
 
-            <Button Text="Save Expense"
-                    />
+            <Button Text="Save Expense" />
 
         </StackLayout>
     </ContentPage.Content>

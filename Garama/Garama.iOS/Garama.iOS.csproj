@@ -179,4 +179,10 @@
   <ItemGroup>
     <BundleResource Include="Resources\menu.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\closesecondary.png" />
+  </ItemGroup>
 </Project>
