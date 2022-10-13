@@ -1,5 +1,6 @@
 ﻿using Garama.Services;
 using Garama.Views;
+using Garama.Views.Auth;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -17,8 +18,9 @@ namespace Garama
 
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NDg3MjI3QDMxMzkyZTMyMmUzMEdKcTBINUEwaTlyT1pQT1ZEOGdhc1NCbTAyN0NsbjBhRk1zWkRYaE1LUzA9");
 
-            MainPage = new AppShell();
-            //MainPage = new NewItemPage();
+            //MainPage = new AppShell();
+            MainPage = new Views.Auth.LoginPage();
+            
         }
 
         protected override void OnStart()

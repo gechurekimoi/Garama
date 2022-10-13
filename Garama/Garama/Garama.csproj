@@ -22,6 +22,7 @@
     <None Remove="Resources\Fonts\Riga\RigaScreen-BoldItalic.ttf" />
     <None Remove="Resources\Fonts\Riga\RigaScreen-Italic.ttf" />
     <None Remove="Resources\Fonts\Riga\RigaScreen-Regular.ttf" />
+    <None Remove="Views\Auth\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -84,5 +85,8 @@
     <EmbeddedResource Update="Views\AddIncomePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\Auth\" />
   </ItemGroup>
 </Project>
