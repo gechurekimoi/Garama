@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Common\"/>
+    <None Remove="Entities\"/>
+    <None Remove="Enums\"/>
+    <None Remove="Events\"/>
+    <None Remove="Exceptions\"/>
+    <None Remove="ValueObjects\"/>
+    <None Remove="Microsoft.EntityFrameworkCore"/>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Common\"/>
+    <Folder Include="Entities\"/>
+    <Folder Include="Enums\"/>
+    <Folder Include="Events\"/>
+    <Folder Include="Exceptions\"/>
+    <Folder Include="ValueObjects\"/>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.10"/>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="6.0.10"/>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.10"/>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.10"/>
+  </ItemGroup>
+</Project>
