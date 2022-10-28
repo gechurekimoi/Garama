@@ -18,8 +18,8 @@ namespace Garama
 
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NDg3MjI3QDMxMzkyZTMyMmUzMEdKcTBINUEwaTlyT1pQT1ZEOGdhc1NCbTAyN0NsbjBhRk1zWkRYaE1LUzA9");
 
-            //MainPage = new AppShell();
-            MainPage = new Views.Auth.SignUpPage();
+            MainPage = new AppShell();
+            //MainPage = new Views.Auth.SignUpPage();
             
         }
 

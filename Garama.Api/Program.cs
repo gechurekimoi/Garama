@@ -1,4 +1,6 @@
 ﻿using Garama.Domain.Entities;
+using Microsoft.AspNetCore.Datasync;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.SqlServer;
 using Microsoft.Extensions.Configuration;
 
@@ -6,10 +8,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDatasyncControllers();
 
 builder.Services.AddDbContext<GaramaDbContext>(options =>
 {
-    options.UseSqlServer("");
+    options.UseSqlServer(builder.Configuration.GetConnectionString("GaramaDbContext"));
 });
 
 
