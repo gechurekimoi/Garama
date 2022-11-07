@@ -53,7 +53,18 @@
     
     <StackLayout Margin="0,20,0,0">
 
-      
+        <!--<Button Text="Initialize Data Sync"
+              Clicked="Button_Clicked"/>
+
+        <Button Text="Generate Token"
+              Clicked="Button_Clicked_1"
+                />
+
+        <Button Text="Get Data"
+              Clicked="Button_Clicked_2"
+                />-->
+
+
         <tabView:SfTabView BackgroundColor="{StaticResource Background}" 
                            VerticalOptions="FillAndExpand"
                            TabHeaderPosition="Bottom"

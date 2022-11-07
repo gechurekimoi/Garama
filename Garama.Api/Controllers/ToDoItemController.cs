@@ -1,4 +1,5 @@
 ﻿using Garama.Domain.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Datasync;
 using Microsoft.AspNetCore.Datasync.EFCore;
 using Microsoft.AspNetCore.Mvc;
@@ -6,6 +7,7 @@ using Microsoft.Extensions.Logging;
 
 namespace Garama.Api.Controllers
 {
+    [Authorize]
     [Route("tables/[controller]")]
     public class ToDoItemController : TableController<ToDoItem>
     {
