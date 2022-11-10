@@ -11,6 +11,7 @@ namespace Garama.Domain.Entities
         }
 
         public DbSet<ToDoItem> ToDoItems { get; set; }     
+        public DbSet<User> Users { get; set; }     
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

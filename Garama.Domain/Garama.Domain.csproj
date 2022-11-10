@@ -12,7 +12,6 @@
     <None Remove="Microsoft.EntityFrameworkCore" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Common\" />
     <Folder Include="Entities\" />
     <Folder Include="Enums\" />
     <Folder Include="Events\" />

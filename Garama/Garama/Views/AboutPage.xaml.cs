@@ -16,7 +16,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using static Xamarin.Essentials.AppleSignInAuthenticator;
 using Microsoft.Identity.Client;
-
+using System.IdentityModel.Tokens.Jwt;
 
 namespace Garama.Views
 {
@@ -102,57 +102,63 @@ namespace Garama.Views
 
         public async Task<AuthenticationToken> GetAuthenticationToken()
         {
-            
 
-                if (IdentityClient == null)
-                {
-                    IdentityClient = PlatformService.GetIdentityClient(Constants.ApplicationId);
-                }
 
-                var accounts = await IdentityClient.GetAccountsAsync();
-                AuthenticationResult result = null;
-                bool tryInteractiveLogin = false;
+            if (IdentityClient == null)
+            {
+                IdentityClient = PlatformService.GetIdentityClient(Constants.ApplicationId);
+            }
 
+            var accounts = await IdentityClient.GetAccountsAsync();
+            AuthenticationResult result = null;
+            bool tryInteractiveLogin = false;
+
+            try
+            {
+                result = await IdentityClient
+                    .AcquireTokenSilent(Constants.Scopes, accounts.FirstOrDefault())
+                    .ExecuteAsync();
+            }
+            catch (MsalUiRequiredException)
+            {
+                tryInteractiveLogin = true;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"MSAL Silent Error: {ex.Message}");
+            }
+
+            if (tryInteractiveLogin)
+            {
                 try
                 {
                     result = await IdentityClient
-                        .AcquireTokenSilent(Constants.Scopes, accounts.FirstOrDefault())
-                        .ExecuteAsync();
-                }
-                catch (MsalUiRequiredException)
-                {
-                    tryInteractiveLogin = true;
+                        .AcquireTokenInteractive(Constants.Scopes)
+                        .ExecuteAsync()
+                        .ConfigureAwait(false);
                 }
                 catch (Exception ex)
                 {
-                    Debug.WriteLine($"MSAL Silent Error: {ex.Message}");
+                    Debug.WriteLine($"MSAL Interactive Error: {ex.Message}");
                 }
+            }
 
-                if (tryInteractiveLogin)
-                {
-                    try
-                    {
-                        result = await IdentityClient
-                            .AcquireTokenInteractive(Constants.Scopes)
-                            .ExecuteAsync()
-                            .ConfigureAwait(false);
-                    }
-                    catch (Exception ex)
-                    {
-                        Debug.WriteLine($"MSAL Interactive Error: {ex.Message}");
-                    }
-                }
 
-                return new AuthenticationToken
-                {
-                    DisplayName = result?.Account?.Username ?? "",
-                    ExpiresOn = result?.ExpiresOn ?? DateTimeOffset.MinValue,
-                    Token = result?.AccessToken ?? "",
-                    UserId = result?.Account?.Username ?? ""
-                };
+            var deserilizedToken = new JwtSecurityToken(result.AccessToken);
 
-           
-            
+            var claims = deserilizedToken.Claims.ToList();
+
+
+            return new AuthenticationToken
+            {
+                DisplayName = result?.Account?.Username ?? "",
+                ExpiresOn = result?.ExpiresOn ?? DateTimeOffset.MinValue,
+                Token = result?.AccessToken ?? "",
+                UserId = result?.Account?.Username ?? ""
+            };
+
+
+
         }
 
         public async Task InitializeDataSync()
