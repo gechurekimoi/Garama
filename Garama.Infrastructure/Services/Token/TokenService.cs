@@ -28,7 +28,7 @@ namespace Garama.Infrastructure.Services.Token
                 var tokenOptions = new JwtSecurityToken(
                     issuer:Issuer,
                     audience: Audience,
-                    claims: new List<Claim>(),
+                    claims: claims,
                     expires: DateTime.Now.AddMinutes(5),
                     signingCredentials: signInCredentials);
 

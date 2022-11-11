@@ -10,5 +10,7 @@ namespace Garama.Infrastructure.Services
     public interface IUserService
     {
         User GetUserDetails(LoginModel loginModel);
+        public bool UpdateRefreshToken(string RefreshToken, string UserId);
+        public User GetUserById(string Id);
     }
 }

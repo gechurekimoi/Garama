@@ -38,5 +38,40 @@ namespace Garama.Infrastructure.Services
                 return null;
             }
         }
+
+        public bool UpdateRefreshToken(string RefreshToken, string UserId)
+        {
+            try
+            {
+
+                User user = dbContext.Users.Where(p => p.Id == UserId).FirstOrDefault();
+                user.RefreshToken = RefreshToken;
+
+                dbContext.SaveChanges();
+
+                return true;
+
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, "Error Updating Token");
+                return false;
+            }
+        }
+
+        public User GetUserById(string Id)
+        {
+            try
+            {
+                var user = dbContext.Users.Where(p => p.Id == Id).FirstOrDefault();
+
+                return user;
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, "Error getting user by Id");
+                return null;
+            }
+        }
     }
 }
