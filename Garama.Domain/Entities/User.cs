@@ -14,7 +14,8 @@ namespace Garama.Domain.Entities
         public string Email { get; set; }
         public string UserName { get; set; }
         public int AuthMethod { get; set; }
-        public DateTime? LastAuthDate { get; set; } 
+        public DateTime? LastAuthDate { get; set; }
+        public string AuthMethodImmutableIdSent { get; set; }
     }
 }
 

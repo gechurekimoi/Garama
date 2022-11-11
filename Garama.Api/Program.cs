@@ -9,6 +9,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Garama.Infrastructure.Services;
 using Garama.Infrastructure.Services.Token;
+using Microsoft.AspNetCore.Authorization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,15 +17,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddDatasyncControllers();
 
-//builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-//                .AddMicrosoftIdentityWebApi(builder.Configuration);
+//here we add authentication using Azure Active directory and Jwt
 
-
-builder.Services.AddAuthentication(opt =>
-{
-    opt.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-    opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-}).AddJwtBearer(options =>
+builder.Services.AddAuthentication().AddJwtBearer("FirstScheme",options =>
 {
     options.TokenValidationParameters = new TokenValidationParameters()
     {
@@ -36,10 +31,18 @@ builder.Services.AddAuthentication(opt =>
         ValidAudience = builder.Configuration["PhoneAuthenticationToken:ValidAudience"].ToString(),
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["PhoneAuthenticationToken:IssuerSigningKey"].ToString()))
     };
+}).AddMicrosoftIdentityWebApi(builder.Configuration);
+
+
+builder.Services.AddAuthorization(options =>
+{
+    var defaultAuthorizationPolicyBuilder = new AuthorizationPolicyBuilder(
+       JwtBearerDefaults.AuthenticationScheme,
+       "FirstScheme");
+    defaultAuthorizationPolicyBuilder =
+        defaultAuthorizationPolicyBuilder.RequireAuthenticatedUser();
+    options.DefaultPolicy = defaultAuthorizationPolicyBuilder.Build();
 });
-
-
-builder.Services.AddAuthorization();
 
 builder.Services.AddDbContext<GaramaDbContext>(options =>
 {
