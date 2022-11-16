@@ -4,7 +4,6 @@ namespace Garama.Domain.Entities
 {
     public class User : EntityTableData
     {
-       
         public string FullName { get; set; }
         public string PhoneNumber { get; set; }
         public string PasswordHash { get; set; }

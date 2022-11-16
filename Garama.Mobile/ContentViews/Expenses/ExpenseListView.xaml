@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Garama.Mobile.ContentViews.Expenses.ExpenseListView">
+  <ContentView.Content>
+      
+        <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+            <StackLayout
+                Padding="0"
+                AbsoluteLayout.LayoutBounds="1,1,1,1"
+                AbsoluteLayout.LayoutFlags="All">
+
+                <Label
+                    Margin="10"
+                    Style="{StaticResource PageTitleLabel}"
+                    Text="Expenses" />
+
+                <Grid
+                    Padding="10"
+                    BackgroundColor="White"
+                    ColumnDefinitions="0.25*,0.55*,0.2*"
+                    HeightRequest="30"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="Start">
+
+                    <Label
+                        Grid.Column="0"
+                        HorizontalOptions="StartAndExpand"
+                        Style="{StaticResource MediumLabel}"
+                        Text="Date"
+                        VerticalOptions="CenterAndExpand" />
+
+                    <Label
+                        Grid.Column="1"
+                        HorizontalOptions="StartAndExpand"
+                        Style="{StaticResource MediumLabel}"
+                        Text="Description"
+                        VerticalOptions="CenterAndExpand" />
+
+                    <Label
+                        Grid.Column="2"
+                        HorizontalOptions="EndAndExpand"
+                        Style="{StaticResource MediumLabel}"
+                        Text="Amount"
+                        VerticalOptions="CenterAndExpand" />
+
+                </Grid>
+
+
+
+
+                <CollectionView ItemsSource="{Binding ToDoItems}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Padding="5" ColumnDefinitions="0.25*,0.55*,0.2*">
+
+                                <Label
+                        Grid.Column="0"
+                        HorizontalOptions="StartAndExpand"
+                        Style="{StaticResource RegularLabel}"
+                        Text="{Binding Id}" />
+
+                                <Label
+                        Grid.Column="1"
+                        HorizontalOptions="StartAndExpand"
+                        Style="{StaticResource RegularLabel}"
+                        Text="{Binding Text}" />
+
+                                <Label
+                        Grid.Column="2"
+                        HorizontalOptions="EndAndExpand"
+                        Style="{StaticResource RegularLabel}"
+                        Text="{Binding Complete}" />
+
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+
+
+
+            </StackLayout>
+
+
+            <Button
+                AbsoluteLayout.LayoutBounds="0.95,0.95"
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                Clicked="Button_Clicked"
+                CornerRadius="{OnPlatform Android=60,
+                                          iOS=35}"
+                FontSize="25"
+                HeightRequest="{OnPlatform Android=60,
+                                           iOS=70}"
+                Text="+"
+                WidthRequest="{OnPlatform Android=60,
+                                          iOS=70}" />
+
+        </AbsoluteLayout>
+    </ContentView.Content>
+</ContentView>
