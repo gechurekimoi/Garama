@@ -39,6 +39,18 @@ namespace Garama.ViewModels
             return true;
         }
 
+
+        public void ShowErrorMessage(string Message="", Exception ex = null)
+        {
+            throw new Exception("",ex);
+        }
+
+        public void ShowSuccessMessage(string Message = "")
+        {
+
+        }
+
+
         #region INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged([CallerMemberName] string propertyName = "")

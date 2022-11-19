@@ -1,4 +1,5 @@
 ﻿using Garama.Services;
+using Garama.ViewModels.AuthViewModels;
 using Garama.Views;
 using Garama.Views.Auth;
 using Microsoft.Datasync.Client;
@@ -27,10 +28,12 @@ namespace Garama
 
             DependencyService.Register<MockDataStore>();
 
+            AddViewModelsToDepedencyService();
+
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NDg3MjI3QDMxMzkyZTMyMmUzMEdKcTBINUEwaTlyT1pQT1ZEOGdhc1NCbTAyN0NsbjBhRk1zWkRYaE1LUzA9");
 
-            MainPage = new AppShell();
-            //MainPage = new Views.Auth.SignUpPage();
+            //MainPage = new AppShell();
+            MainPage = new NavigationPage(new WelcomePage());
             
         }
 
@@ -95,5 +98,17 @@ namespace Garama
                 UserId = result?.Account?.Username ?? ""
             };
         }
+
+        public void AddViewModelsToDepedencyService()
+        {
+            try
+            {
+                DependencyService.Register<WelcomePageViewModel>();
+            }
+            catch (Exception ex)
+            {
+
+            }
+        } 
     }
 }

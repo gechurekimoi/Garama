@@ -29,14 +29,16 @@
                            FontSize="15"
                            VerticalOptions="StartAndExpand"/>
 
-                   <Button Text="Login"
+                   <Button Text="Create Account"
                            Style="{x:StaticResource ButtonFilledWhite}"
                            VerticalOptions="StartAndExpand"
+                           Command="{Binding ICreateAccountCommand}"
                            />
 
-                   <Button Text="Sign Up"
+                   <Button Text="Sign In"
                            Style="{x:StaticResource ButtonOutlineWhite}"
                            VerticalOptions="EndAndExpand"
+                           Command="{Binding ILoginCommand}"
                            />
 
                </StackLayout>
