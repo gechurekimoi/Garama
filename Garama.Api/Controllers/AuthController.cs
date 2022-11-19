@@ -1,4 +1,5 @@
 ﻿using Garama.Domain.Common.Auth;
+using Garama.Domain.Entities;
 using Garama.Infrastructure.Services;
 using Garama.Infrastructure.Services.Token;
 using Microsoft.AspNetCore.Authorization;
@@ -28,6 +29,7 @@ namespace Garama.Api.Controllers
             this.userService = userService;
         }
 
+        [AllowAnonymous]
         [HttpPost]
         [Route("GenerateToken")]
         public ActionResult GenerateAuthToken(LoginModel loginModel)
@@ -75,6 +77,7 @@ namespace Garama.Api.Controllers
         }
 
 
+        [AllowAnonymous]
         [HttpPost]
         [Route("RefreshToken")]
         public ActionResult RefreshToken(TokenResponse tokenResponse)
@@ -136,7 +139,20 @@ namespace Garama.Api.Controllers
         [HttpGet("TestAuthToken")]
         public ActionResult TestAuthToken()
         {
+            var userDetails = User;
+
             return Ok("works");
+        }
+
+        [Authorize]
+        [HttpPost("AddThirdPartyUserToDbAndGetUserId")]
+        public async Task<ActionResult> AddThirdPartyUserToDbAndGetUserId(ThirdPartyAuthUserDetails details)
+        {
+            string UserId = await userService.AddThirdPartyUserToDbAndGetUserId(details);
+
+            return Ok(UserId);
+
+
         }
 
 

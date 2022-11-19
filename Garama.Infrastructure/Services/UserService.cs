@@ -73,5 +73,42 @@ namespace Garama.Infrastructure.Services
                 return null;
             }
         }
+
+        public async Task<string> AddThirdPartyUserToDbAndGetUserId(ThirdPartyAuthUserDetails details)
+        {
+            try
+            {
+                var retrievedUser = dbContext.Users.Where(p => p.AuthMethodImmutableIdSent == details.ImmutableId.Trim()).FirstOrDefault();
+
+                if (retrievedUser != null)
+                    return retrievedUser.Id;
+
+                //if we reach here it means we need to add the user
+                User user = new User()
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    FullName = details.FullNames,
+                    UserName = details.Username,
+                    Email = details.Email,
+                    PhoneNumber = details.PhoneNumber,
+                    AuthMethodImmutableIdSent = details.ImmutableId?.Trim(),
+                    AuthMethod = details.AuthProvider,
+                    DateAdded = DateTime.Now,
+                    Deleted = false,
+                    UpdatedAt = DateTime.Now,
+                };
+
+                dbContext.Users.Add(user);
+                await dbContext.SaveChangesAsync();
+
+                return user.Id;
+
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, "Error Adding or retrieving user details");
+                return null;
+            }
+        }
     }
 }

@@ -4,6 +4,7 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Garama.Infrastructure.Services
 {
@@ -12,5 +13,6 @@ namespace Garama.Infrastructure.Services
         User GetUserDetails(LoginModel loginModel);
         public bool UpdateRefreshToken(string RefreshToken, string UserId);
         public User GetUserById(string Id);
+        Task<string> AddThirdPartyUserToDbAndGetUserId(ThirdPartyAuthUserDetails details);
     }
 }
