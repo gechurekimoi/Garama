@@ -54,8 +54,8 @@ namespace Garama.Views
 
             Task.Run(async () =>
             {
-                await InitializeDataSync();
-                await GetDataFromDatabase();
+                //await InitializeDataSync();
+                //await GetDataFromDatabase();
             });
 
         }
@@ -156,8 +156,6 @@ namespace Garama.Views
                 Token = result?.AccessToken ?? "",
                 UserId = result?.Account?.Username ?? ""
             };
-
-
 
         }
 

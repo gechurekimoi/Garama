@@ -13,11 +13,11 @@
                          BackgroundColor="{x:StaticResource Secondary}"
                          Padding="20">
 
-                <Image Source="back"
+                <!--<Image Source="back"
                        VerticalOptions="Start"
                        HorizontalOptions="StartAndExpand"
                        HeightRequest="20"
-                       />
+                       />-->
 
                 <Label Text="Welcome back"
                        Style="{x:StaticResource BoldLabel}"
@@ -40,13 +40,14 @@
                      >
 
                     <Image Grid.Column="0"
-                           Source="telephone"
+                           Source="user"
                            HeightRequest="20"
                            HorizontalOptions="StartAndExpand"
                            />
 
                     <Entry Grid.Column="1"
-                           Keyboard="Telephone"/>
+                           Keyboard="Chat"
+                           Text="{Binding UserName}"/>
 
                 </Grid>
 
@@ -61,6 +62,7 @@
 
                     <Entry Grid.Column="1"
                            IsPassword="True"
+                           Text="{Binding Pin}"
                            />
 
                 </Grid>
@@ -73,6 +75,7 @@
 
                 <Button Text="Login"
                         Style="{StaticResource ButtonFilled}"
+                        Command="{Binding LoginWithUserPinOrPasswordCommand}"
                         />
 
                 <Grid ColumnDefinitions="0.4*, 0.1*,0.4*">
@@ -98,8 +101,9 @@
 
                 </Grid>
 
-                <Button Text="Sign up"
+                <Button Text="Login with Microsoft"
                         Style="{StaticResource ButtonOutline}"
+                        Command="{Binding LoginWithMicrosoftCommand}"
                         />
 
             </StackLayout>

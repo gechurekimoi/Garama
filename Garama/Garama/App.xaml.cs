@@ -4,16 +4,18 @@ using Garama.Views;
 using Garama.Views.Auth;
 using Microsoft.Datasync.Client;
 using Microsoft.Identity.Client;
+using RestSharp;
 using System;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
 using Xamarin.Forms.Xaml;
 
 namespace Garama
 {
-    public partial class App : Application
+    public partial class App : Xamarin.Forms.Application
     {
         public IPublicClientApplication IdentityClient { get; set; }
         public IPlatform PlatformService { get; }
@@ -26,13 +28,17 @@ namespace Garama
 
             Constants.PlatformService = platformService;
 
-            DependencyService.Register<MockDataStore>();
+
+            ApiDetail.EndPoint = ApiDetail.PublicEndPoint;
+
+            //Xamarin.Forms.Application.Current.On<Xamarin.Forms.PlatformConfiguration.Android>().UseWindowSoftInputModeAdjust(WindowSoftInputModeAdjust.Resize);
 
             AddViewModelsToDepedencyService();
 
+            AddServicesToDepedencyService();
+
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NDg3MjI3QDMxMzkyZTMyMmUzMEdKcTBINUEwaTlyT1pQT1ZEOGdhc1NCbTAyN0NsbjBhRk1zWkRYaE1LUzA9");
 
-            //MainPage = new AppShell();
             MainPage = new NavigationPage(new WelcomePage());
             
         }
@@ -104,11 +110,25 @@ namespace Garama
             try
             {
                 DependencyService.Register<WelcomePageViewModel>();
+                DependencyService.Register<LoginPageViewModel>();
             }
             catch (Exception ex)
             {
 
             }
-        } 
+        }
+
+        public void AddServicesToDepedencyService()
+        {
+            try
+            {
+                DependencyService.Register<RestClient>();
+                DependencyService.Register<LoginService>();
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
     }
 }
