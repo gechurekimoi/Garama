@@ -17,6 +17,7 @@ using Xamarin.Forms.Xaml;
 using static Xamarin.Essentials.AppleSignInAuthenticator;
 using Microsoft.Identity.Client;
 using System.IdentityModel.Tokens.Jwt;
+using Garama.Services;
 
 namespace Garama.Views
 {
@@ -173,7 +174,7 @@ namespace Garama.Views
                 };
 
 
-                Client = new DatasyncClient("https://garama.azurewebsites.net", new GenericAuthenticationProvider(TokenRequestor), options);
+                Client = new DatasyncClient(ApiDetail.PublicEndPoint, new GenericAuthenticationProvider(TokenRequestor), options);
 
                 remoteTable = Client.GetRemoteTable<ToDoItem>();
 

@@ -64,6 +64,8 @@ namespace Garama.ViewModels.AuthViewModels
 					//we save the token in Preferences
 					Preferences.Set(nameof(PreferencesConstants.AccessToken), generateTokenResult.accessToken);
 					Preferences.Set(nameof(PreferencesConstants.RefreshToken), generateTokenResult.refreshToken);
+					Preferences.Set(nameof(PreferencesConstants.UserId), "");
+
 
 					App.Current.MainPage = new AppShell();
 				}
@@ -89,7 +91,7 @@ namespace Garama.ViewModels.AuthViewModels
 
 				var result = await loginService.GetAuthenticationTokenForMicrosoft();
 
-				if(result.Token!= null)
+				if(!string.IsNullOrEmpty(result.Token))
 				{
                     App.Current.MainPage = new AppShell();
 				}

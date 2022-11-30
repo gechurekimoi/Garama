@@ -127,5 +127,32 @@ namespace Garama.Services
             }
 
         }
+
+        public string GetUserIdFromTokenClaimsNonMicrosoftLogin(string Token)
+        {
+            try
+            {
+                return "";
+            }
+            catch (Exception ex)
+            {
+                LogError(ex);
+                return null;
+            }
+        }
+
+        public string GetUserIdForMicrosoftAuthUser(RequestUserIdForThirdLogin requestUser)
+        {
+            try
+            {
+                return "";
+            }
+            catch (Exception ex)
+            {
+                LogError(ex);
+                return null;
+            }
+        }
+
     }
 }
