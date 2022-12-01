@@ -3,6 +3,7 @@ using Microsoft.Datasync.Client;
 using Microsoft.Identity.Client;
 using Newtonsoft.Json;
 using RestSharp;
+using RestSharp.Authenticators;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -19,6 +20,8 @@ namespace Garama.Services
 
         public IPublicClientApplication IdentityClient { get; set; }
         public IPlatform PlatformService { get; set; }
+
+        public RequestUserIdForThirdLogin RequestUserIdForThirdLogin = new RequestUserIdForThirdLogin();
 
         public LoginService()
         {
@@ -101,9 +104,7 @@ namespace Garama.Services
                     }
                 }
 
-
-                var deserilizedToken = new JwtSecurityToken(result.AccessToken);
-
+                SetThirdPartyValuesForMicrosoftLogin(result.AccessToken);
 
                 return new AuthenticationToken
                 {
@@ -128,11 +129,23 @@ namespace Garama.Services
 
         }
 
-        public string GetUserIdFromTokenClaimsNonMicrosoftLogin(string Token)
+        public JwtTokenUserDetail GetUserDetailsFromTokenClaimsNonMicrosoftLogin(string Token)
         {
             try
             {
-                return "";
+                JwtTokenUserDetail userDetail = new JwtTokenUserDetail();
+
+                var jwtSecurityToken = new JwtSecurityTokenHandler().ReadJwtToken(Token);
+
+                var claims = jwtSecurityToken.Claims.ToList();
+
+                userDetail.UserId = claims.Where(p=>p.Type == "UserId").FirstOrDefault().Value;
+                userDetail.Name = claims.Where(p=>p.Type == "Name").FirstOrDefault().Value;
+                userDetail.Email = claims.Where(p=>p.Type == "Email").FirstOrDefault().Value;
+                userDetail.PhoneNumber = claims.Where(p=>p.Type == "PhoneNumber").FirstOrDefault().Value;
+
+
+                return userDetail;
             }
             catch (Exception ex)
             {
@@ -141,11 +154,38 @@ namespace Garama.Services
             }
         }
 
-        public string GetUserIdForMicrosoftAuthUser(RequestUserIdForThirdLogin requestUser)
+        public async Task<JwtTokenUserDetail> GetUserIdForMicrosoftAuthUser(RequestUserIdForThirdLogin requestUser,string Token)
         {
             try
             {
-                return "";
+                RestClient restClient = new RestClient(ApiDetail.EndPoint);
+
+                restClient.Authenticator = new JwtAuthenticator(Token);
+
+                RestRequest restRequest = new RestRequest()
+                {
+                    Resource = "/api/Auth/AddThirdPartyUserToDbAndGetUserId"
+                };
+
+                restRequest.AddJsonBody(requestUser);
+
+                var response = await restClient.PostAsync(restRequest);
+
+                if (!response.IsSuccessful)
+                    return null;
+
+                var deserializeResponse = JsonConvert.DeserializeObject<string>(response.Content);
+
+                JwtTokenUserDetail userDetail = new JwtTokenUserDetail();
+
+                userDetail.UserId = deserializeResponse;
+                userDetail.Name = requestUser.fullNames;
+                userDetail.Email = requestUser.email;
+                userDetail.PhoneNumber= requestUser.phoneNumber;
+                
+
+                return userDetail;
+
             }
             catch (Exception ex)
             {
@@ -154,5 +194,24 @@ namespace Garama.Services
             }
         }
 
+
+        private void SetThirdPartyValuesForMicrosoftLogin(string Token)
+        {
+            try
+            {
+                var deserilizedToken = new JwtSecurityToken(Token);
+
+                var claims = deserilizedToken.Claims;
+
+                RequestUserIdForThirdLogin.immutableId = claims.Where(p => p.Type == "oid").FirstOrDefault().Value;
+                RequestUserIdForThirdLogin.fullNames = claims.Where(p => p.Type == "name").FirstOrDefault().Value;
+                RequestUserIdForThirdLogin.email = claims.Where(p => p.Type == "preferred_username").FirstOrDefault().Value;
+
+            }
+            catch (Exception ex)
+            {
+                LogError(ex);
+            }
+        }
     }
 }

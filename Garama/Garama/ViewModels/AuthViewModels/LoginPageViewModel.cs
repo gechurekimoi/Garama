@@ -1,4 +1,5 @@
-﻿using Garama.Models.AuthModels;
+﻿using Garama.Enums;
+using Garama.Models.AuthModels;
 using Garama.Services;
 using Microsoft.Identity.Client;
 using RestSharp;
@@ -61,10 +62,16 @@ namespace Garama.ViewModels.AuthViewModels
 
 				if(generateTokenResult != null)
 				{
-					//we save the token in Preferences
-					Preferences.Set(nameof(PreferencesConstants.AccessToken), generateTokenResult.accessToken);
+					var userDetail = loginService.GetUserDetailsFromTokenClaimsNonMicrosoftLogin(generateTokenResult.accessToken);
+
+                    //we save the token in Preferences
+                    Preferences.Set(nameof(PreferencesConstants.AccessToken), generateTokenResult.accessToken);
 					Preferences.Set(nameof(PreferencesConstants.RefreshToken), generateTokenResult.refreshToken);
-					Preferences.Set(nameof(PreferencesConstants.UserId), "");
+					Preferences.Set(nameof(PreferencesConstants.UserId), userDetail.UserId);
+					Preferences.Set(nameof(PreferencesConstants.Name), userDetail.Name);
+					Preferences.Set(nameof(PreferencesConstants.Email), userDetail.Email);
+					Preferences.Set(nameof(PreferencesConstants.PhoneNumber), userDetail.PhoneNumber);
+					Preferences.Set(nameof(PreferencesConstants.AuthMethod), AuthMethodEnums.Jwt.ToString());
 
 
 					App.Current.MainPage = new AppShell();
@@ -82,8 +89,6 @@ namespace Garama.ViewModels.AuthViewModels
 			}
 		}
 
-
-
 		public async Task LoginWithMicrosoft()
 		{
 			try
@@ -93,7 +98,21 @@ namespace Garama.ViewModels.AuthViewModels
 
 				if(!string.IsNullOrEmpty(result.Token))
 				{
-                    App.Current.MainPage = new AppShell();
+					RequestUserIdForThirdLogin requestUser = loginService.RequestUserIdForThirdLogin;
+
+					var userDetail = await loginService.GetUserIdForMicrosoftAuthUser(requestUser,result.Token);
+
+					
+					//we save the token in Preferences
+					Preferences.Set(nameof(PreferencesConstants.AccessToken), result.Token);
+					//Preferences.Set(nameof(PreferencesConstants.RefreshToken), generateTokenResult.refreshToken);
+					Preferences.Set(nameof(PreferencesConstants.UserId), userDetail.UserId);
+					Preferences.Set(nameof(PreferencesConstants.Name), userDetail.Name);
+					Preferences.Set(nameof(PreferencesConstants.Email), userDetail.Email);
+					Preferences.Set(nameof(PreferencesConstants.PhoneNumber), userDetail.PhoneNumber);
+					Preferences.Set(nameof(PreferencesConstants.AuthMethod), AuthMethodEnums.Microsoft.ToString());
+
+					App.Current.MainPage = new AppShell();
 				}
 				else
 				{
