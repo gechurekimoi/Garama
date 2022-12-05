@@ -12,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 
 namespace Garama.Services
 {
@@ -62,7 +63,6 @@ namespace Garama.Services
 
         public async Task<AuthenticationToken> GetAuthenticationTokenForMicrosoft()
         {
-
             try
             {
                 if (IdentityClient == null)
@@ -211,6 +211,91 @@ namespace Garama.Services
             catch (Exception ex)
             {
                 LogError(ex);
+            }
+        }
+
+        public bool CheckIfJWTisExpired(string Token)
+        {
+            try
+            {
+
+                var jwtSecurityToken = new JwtSecurityTokenHandler().ReadJwtToken(Token);
+
+                var claims = jwtSecurityToken.Claims.ToList();
+
+                var expiryDateString = claims.Where(p => p.Type == "exp").FirstOrDefault().Value;
+
+                var ExpiryDate = Convert.ToDateTime(expiryDateString);
+
+                if (DateTime.Now > ExpiryDate)
+                    return true;
+
+
+                return false;
+
+            }
+            catch (Exception ex)
+            {
+                LogError(ex);
+                return true;
+            }
+        }
+
+        public DateTime GetExpiryDateJWT(string Token)
+        {
+            try
+            {
+
+                var jwtSecurityToken = new JwtSecurityTokenHandler().ReadJwtToken(Token);
+
+                var claims = jwtSecurityToken.Claims.ToList();
+
+                var expiryDateString = claims.Where(p => p.Type == "exp").FirstOrDefault().Value;
+
+                var ExpiryDate = Convert.ToDateTime(expiryDateString);
+
+                return ExpiryDate;
+
+            }
+            catch (Exception ex)
+            {
+                LogError(ex);
+                return DateTime.Now;
+            }
+        }
+
+        public async Task<GenerateTokenResponse> GenerateTokenFromRefreshToken()
+        {
+            try
+            {
+
+                RestClient restClient = new RestClient(ApiDetail.EndPoint);
+
+                RestRequest restRequest = new RestRequest()
+                {
+                    Resource = "/api/Auth/RefreshToken"
+                };
+
+                RefreshTokenBody requestBody = new RefreshTokenBody();
+                requestBody.accessToken = Preferences.Get(nameof(PreferencesConstants.AccessToken), "");
+                requestBody.refreshToken = Preferences.Get(nameof(PreferencesConstants.RefreshToken), "");
+
+                restRequest.AddJsonBody(requestBody);
+
+                var response = await restClient.PostAsync(restRequest);
+
+                if (!response.IsSuccessful)
+                    return null;
+
+                var deserializeResponse = JsonConvert.DeserializeObject<GenerateTokenResponse>(response.Content);
+
+                return deserializeResponse;
+
+            }
+            catch (Exception ex)
+            {
+                LogError(ex);
+                return null;
             }
         }
     }

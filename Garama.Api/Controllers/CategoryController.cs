@@ -17,5 +17,6 @@ namespace Garama.Api.Controllers
             Repository = new EntityTableRepository<Category>(context);
             Logger = logger;
         }
+
     }
 }

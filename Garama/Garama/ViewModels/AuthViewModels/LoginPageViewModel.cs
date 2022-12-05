@@ -105,7 +105,6 @@ namespace Garama.ViewModels.AuthViewModels
 					
 					//we save the token in Preferences
 					Preferences.Set(nameof(PreferencesConstants.AccessToken), result.Token);
-					//Preferences.Set(nameof(PreferencesConstants.RefreshToken), generateTokenResult.refreshToken);
 					Preferences.Set(nameof(PreferencesConstants.UserId), userDetail.UserId);
 					Preferences.Set(nameof(PreferencesConstants.Name), userDetail.Name);
 					Preferences.Set(nameof(PreferencesConstants.Email), userDetail.Email);
