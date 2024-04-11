@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Garama.Views.Auth.LoginPage">
+    <ContentPage.Content>
+        <Grid VerticalOptions="FillAndExpand"
+              HorizontalOptions="FillAndExpand"
+              RowDefinitions="0.5*,0.5*">
+
+
+            <StackLayout Grid.Row="0"
+                         BackgroundColor="{x:StaticResource Secondary}"
+                         Padding="20">
+
+                <Image Source="back"
+                       VerticalOptions="Start"
+                       HorizontalOptions="StartAndExpand"
+                       HeightRequest="20"
+                       />
+
+                <Label Text="Welcome back"
+                       Style="{x:StaticResource BoldLabel}"
+                       VerticalOptions="CenterAndExpand"
+                       HorizontalOptions="StartAndExpand"
+                       TextColor="White"
+                       FontSize="40"
+                       WidthRequest="200"
+                       />
+
+            </StackLayout>
+
+            <StackLayout Grid.Row="1" Padding="20"
+                         VerticalOptions="FillAndExpand"
+                         Spacing="10">
+
+                <Grid ColumnDefinitions="0.1*,0.9*"
+                      HorizontalOptions="FillAndExpand"
+                      ColumnSpacing="0"
+                     >
+
+                    <Image Grid.Column="0"
+                           Source="telephone"
+                           HeightRequest="20"
+                           HorizontalOptions="StartAndExpand"
+                           />
+
+                    <Entry Grid.Column="1"
+                           Keyboard="Telephone"/>
+
+                </Grid>
+
+                <Grid ColumnDefinitions="0.1*,0.9*"
+                      HorizontalOptions="FillAndExpand"
+                      ColumnSpacing="0">
+                    <Image Grid.Column="0"
+                           Source="padlock"
+                           HeightRequest="20"
+                           HorizontalOptions="StartAndExpand"
+                           />
+
+                    <Entry Grid.Column="1"
+                           IsPassword="True"
+                           />
+
+                </Grid>
+
+                <Label Text="Forgot password?"
+                       Style="{StaticResource MediumLabel}"
+                       TextColor="{StaticResource Secondary}"
+                       HorizontalOptions="EndAndExpand"
+                       />
+
+                <Button Text="Login"
+                        Style="{StaticResource ButtonFilled}"
+                        />
+
+                <Grid ColumnDefinitions="0.4*, 0.1*,0.4*">
+
+                    <BoxView Grid.Column="0"
+                             HorizontalOptions="FillAndExpand"
+                             HeightRequest="1"
+                             BackgroundColor="LightGray"
+                             VerticalOptions="CenterAndExpand"/>
+
+                    <Label Text="or"
+                           Grid.Column="1"
+                           Style="{StaticResource RegularLabel}"
+                           HorizontalOptions="CenterAndExpand"
+                           TextColor="LightGray"
+                           />
+
+                    <BoxView Grid.Column="2"
+                             HorizontalOptions="FillAndExpand"
+                             HeightRequest="1"
+                             BackgroundColor="LightGray"
+                             VerticalOptions="CenterAndExpand"/>
+
+                </Grid>
+
+                <Button Text="Sign up"
+                        Style="{StaticResource ButtonOutline}"
+                        />
+
+            </StackLayout>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

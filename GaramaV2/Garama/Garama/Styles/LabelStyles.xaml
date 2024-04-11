@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary
+    x:Class="Garama.Styles.LabelStyles"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:styles="clr-namespace:Garama.Styles">
+
+    <ResourceDictionary.MergedDictionaries>
+        <styles:ColorStyles />
+    </ResourceDictionary.MergedDictionaries>
+
+
+    <Style x:Key="DefaultLabel" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource DefaultTextColor}" />
+    </Style>
+
+
+    <Style
+        x:Key="RegularLabel"
+        BasedOn="{StaticResource DefaultLabel}"
+        TargetType="Label">
+        <Setter Property="FontFamily" Value="RigaScreenRegular" />
+    </Style>
+
+    <Style
+        x:Key="MediumLabel"
+        BasedOn="{StaticResource DefaultLabel}"
+        TargetType="Label">
+        <Setter Property="FontFamily" Value="RigaMedium" />
+    </Style>
+
+    <Style
+        x:Key="BoldLabel"
+        BasedOn="{StaticResource DefaultLabel}"
+        TargetType="Label">
+        <Setter Property="FontFamily" Value="RigaBold" />
+    </Style>
+
+    <Style
+        x:Key="PageTitleLabel"
+        BasedOn="{StaticResource BoldLabel}"
+        TargetType="Label">
+        <Setter Property="FontSize" Value="35" />
+        <Setter Property="Margin" Value="0,5,0,10" />
+    </Style>
+
+
+
+</ResourceDictionary>

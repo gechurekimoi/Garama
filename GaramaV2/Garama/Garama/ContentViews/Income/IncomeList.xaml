@@ -1,0 +1,657 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="Garama.ContentViews.Income.IncomeList"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <ContentView.Content>
+
+        <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+            <StackLayout AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All">
+
+                <Label
+                    Margin="10"
+                    Style="{StaticResource PageTitleLabel}"
+                    Text="Incomes" />
+
+                <StackLayout Padding="10,0,10,10">
+                    <Label
+                        Margin="2,10,0,0"
+                        FontSize="20"
+                        Style="{StaticResource BoldLabel}"
+                        Text="2021-Nov" />
+
+                    <Frame
+                        Padding="5"
+                        BorderColor="LightGray"
+                        CornerRadius="2"
+                        HasShadow="False"
+                        HeightRequest="25">
+
+                        <StackLayout VerticalOptions="FillAndExpand">
+
+
+                            <StackLayout
+                                Grid.Column="1"
+                                HorizontalOptions="FillAndExpand"
+                                Orientation="Horizontal"
+                                VerticalOptions="CenterAndExpand">
+
+                                <Label
+                                    FontSize="18"
+                                    HorizontalOptions="StartAndExpand"
+                                    Style="{StaticResource RegularLabel}"
+                                    Text="13-Nov-2021"
+                                    VerticalOptions="CenterAndExpand" />
+
+                                <Label
+                                    FontSize="18"
+                                    HorizontalOptions="EndAndExpand"
+                                    Style="{StaticResource MediumLabel}"
+                                    Text="KES. 1000"
+                                    VerticalOptions="CenterAndExpand" />
+
+                            </StackLayout>
+
+                        </StackLayout>
+
+                    </Frame>
+
+                    <Frame
+                        Padding="5"
+                        BorderColor="LightGray"
+                        CornerRadius="2"
+                        HasShadow="False"
+                        HeightRequest="25">
+
+                        <StackLayout VerticalOptions="FillAndExpand">
+
+
+                            <StackLayout
+                                Grid.Column="1"
+                                HorizontalOptions="FillAndExpand"
+                                Orientation="Horizontal"
+                                VerticalOptions="CenterAndExpand">
+
+                                <Label
+                                    FontSize="18"
+                                    HorizontalOptions="StartAndExpand"
+                                    Style="{StaticResource RegularLabel}"
+                                    Text="13-Nov-2021"
+                                    VerticalOptions="CenterAndExpand" />
+
+                                <Label
+                                    FontSize="18"
+                                    HorizontalOptions="EndAndExpand"
+                                    Style="{StaticResource MediumLabel}"
+                                    Text="KES. 1000"
+                                    VerticalOptions="CenterAndExpand" />
+
+                            </StackLayout>
+
+                        </StackLayout>
+
+                    </Frame>
+
+                    <Frame
+                        Padding="5"
+                        BorderColor="LightGray"
+                        CornerRadius="2"
+                        HasShadow="False"
+                        HeightRequest="25">
+
+                        <StackLayout VerticalOptions="FillAndExpand">
+
+
+                            <StackLayout
+                                Grid.Column="1"
+                                HorizontalOptions="FillAndExpand"
+                                Orientation="Horizontal"
+                                VerticalOptions="CenterAndExpand">
+
+                                <Label
+                                    FontSize="18"
+                                    HorizontalOptions="StartAndExpand"
+                                    Style="{StaticResource RegularLabel}"
+                                    Text="13-Nov-2021"
+                                    VerticalOptions="CenterAndExpand" />
+
+                                <Label
+                                    FontSize="18"
+                                    HorizontalOptions="EndAndExpand"
+                                    Style="{StaticResource MediumLabel}"
+                                    Text="KES. 1000"
+                                    VerticalOptions="CenterAndExpand" />
+
+                            </StackLayout>
+
+                        </StackLayout>
+
+                    </Frame>
+
+                    <Frame
+                        Padding="5"
+                        BackgroundColor="{StaticResource Secondary}"
+                        BorderColor="{StaticResource Secondary}"
+                        CornerRadius="2"
+                        HasShadow="False"
+                        HeightRequest="25">
+
+                        <StackLayout VerticalOptions="FillAndExpand">
+
+
+                            <StackLayout
+                                Grid.Column="1"
+                                HorizontalOptions="FillAndExpand"
+                                Orientation="Horizontal"
+                                VerticalOptions="CenterAndExpand">
+
+                                <Label
+                                    FontSize="18"
+                                    HorizontalOptions="StartAndExpand"
+                                    Style="{StaticResource RegularLabel}"
+                                    Text="Total"
+                                    VerticalOptions="CenterAndExpand" />
+
+                                <Label
+                                    FontSize="18"
+                                    HorizontalOptions="EndAndExpand"
+                                    Style="{StaticResource MediumLabel}"
+                                    Text="KES. 1000"
+                                    VerticalOptions="CenterAndExpand" />
+
+                            </StackLayout>
+
+                        </StackLayout>
+
+                    </Frame>
+
+
+                </StackLayout>
+
+                <StackLayout Padding="10,0,10,10">
+                    <Label
+                        Margin="2,10,0,0"
+                        FontSize="20"
+                        Style="{StaticResource BoldLabel}"
+                        Text="2021-Nov" />
+
+                    <Frame
+                        Padding="5"
+                        BorderColor="LightGray"
+                        CornerRadius="2"
+                        HasShadow="False"
+                        HeightRequest="25">
+
+                        <StackLayout VerticalOptions="FillAndExpand">
+
+
+                            <StackLayout
+                                Grid.Column="1"
+                                HorizontalOptions="FillAndExpand"
+                                Orientation="Horizontal"
+                                VerticalOptions="CenterAndExpand">
+
+                                <Label
+                                    FontSize="18"
+                                    HorizontalOptions="StartAndExpand"
+                                    Style="{StaticResource RegularLabel}"
+                                    Text="13-Nov-2021"
+                                    VerticalOptions="CenterAndExpand" />
+
+                                <Label
+                                    FontSize="18"
+                                    HorizontalOptions="EndAndExpand"
+                                    Style="{StaticResource MediumLabel}"
+                                    Text="KES. 1000"
+                                    VerticalOptions="CenterAndExpand" />
+
+                            </StackLayout>
+
+                        </StackLayout>
+
+                    </Frame>
+
+                    <Frame
+                        Padding="5"
+                        BorderColor="LightGray"
+                        CornerRadius="2"
+                        HasShadow="False"
+                        HeightRequest="25">
+
+                        <StackLayout VerticalOptions="FillAndExpand">
+
+
+                            <StackLayout
+                                Grid.Column="1"
+                                HorizontalOptions="FillAndExpand"
+                                Orientation="Horizontal"
+                                VerticalOptions="CenterAndExpand">
+
+                                <Label
+                                    FontSize="18"
+                                    HorizontalOptions="StartAndExpand"
+                                    Style="{StaticResource RegularLabel}"
+                                    Text="13-Nov-2021"
+                                    VerticalOptions="CenterAndExpand" />
+
+                                <Label
+                                    FontSize="18"
+                                    HorizontalOptions="EndAndExpand"
+                                    Style="{StaticResource MediumLabel}"
+                                    Text="KES. 1000"
+                                    VerticalOptions="CenterAndExpand" />
+
+                            </StackLayout>
+
+                        </StackLayout>
+
+                    </Frame>
+
+                    <Frame
+                        Padding="5"
+                        BorderColor="LightGray"
+                        CornerRadius="2"
+                        HasShadow="False"
+                        HeightRequest="25">
+
+                        <StackLayout VerticalOptions="FillAndExpand">
+
+
+                            <StackLayout
+                                Grid.Column="1"
+                                HorizontalOptions="FillAndExpand"
+                                Orientation="Horizontal"
+                                VerticalOptions="CenterAndExpand">
+
+                                <Label
+                                    FontSize="18"
+                                    HorizontalOptions="StartAndExpand"
+                                    Style="{StaticResource RegularLabel}"
+                                    Text="13-Nov-2021"
+                                    VerticalOptions="CenterAndExpand" />
+
+                                <Label
+                                    FontSize="18"
+                                    HorizontalOptions="EndAndExpand"
+                                    Style="{StaticResource MediumLabel}"
+                                    Text="KES. 1000"
+                                    VerticalOptions="CenterAndExpand" />
+
+                            </StackLayout>
+
+                        </StackLayout>
+
+                    </Frame>
+
+                    <Frame
+                        Padding="5"
+                        BackgroundColor="{StaticResource Secondary}"
+                        BorderColor="{StaticResource Secondary}"
+                        CornerRadius="2"
+                        HasShadow="False"
+                        HeightRequest="25">
+
+                        <StackLayout VerticalOptions="FillAndExpand">
+
+
+                            <StackLayout
+                                Grid.Column="1"
+                                HorizontalOptions="FillAndExpand"
+                                Orientation="Horizontal"
+                                VerticalOptions="CenterAndExpand">
+
+                                <Label
+                                    FontSize="18"
+                                    HorizontalOptions="StartAndExpand"
+                                    Style="{StaticResource RegularLabel}"
+                                    Text="Total"
+                                    VerticalOptions="CenterAndExpand" />
+
+                                <Label
+                                    FontSize="18"
+                                    HorizontalOptions="EndAndExpand"
+                                    Style="{StaticResource MediumLabel}"
+                                    Text="KES. 1000"
+                                    VerticalOptions="CenterAndExpand" />
+
+                            </StackLayout>
+
+                        </StackLayout>
+
+                    </Frame>
+
+
+                </StackLayout>
+
+                <StackLayout Padding="10,0,10,10">
+                    <Label
+                        Margin="2,10,0,0"
+                        FontSize="20"
+                        Style="{StaticResource BoldLabel}"
+                        Text="2021-Nov" />
+
+                    <Frame
+                        Padding="5"
+                        BorderColor="LightGray"
+                        CornerRadius="2"
+                        HasShadow="False"
+                        HeightRequest="25">
+
+                        <StackLayout VerticalOptions="FillAndExpand">
+
+
+                            <StackLayout
+                                Grid.Column="1"
+                                HorizontalOptions="FillAndExpand"
+                                Orientation="Horizontal"
+                                VerticalOptions="CenterAndExpand">
+
+                                <Label
+                                    FontSize="18"
+                                    HorizontalOptions="StartAndExpand"
+                                    Style="{StaticResource RegularLabel}"
+                                    Text="13-Nov-2021"
+                                    VerticalOptions="CenterAndExpand" />
+
+                                <Label
+                                    FontSize="18"
+                                    HorizontalOptions="EndAndExpand"
+                                    Style="{StaticResource MediumLabel}"
+                                    Text="KES. 1000"
+                                    VerticalOptions="CenterAndExpand" />
+
+                            </StackLayout>
+
+                        </StackLayout>
+
+                    </Frame>
+
+                    <Frame
+                        Padding="5"
+                        BorderColor="LightGray"
+                        CornerRadius="2"
+                        HasShadow="False"
+                        HeightRequest="25">
+
+                        <StackLayout VerticalOptions="FillAndExpand">
+
+
+                            <StackLayout
+                                Grid.Column="1"
+                                HorizontalOptions="FillAndExpand"
+                                Orientation="Horizontal"
+                                VerticalOptions="CenterAndExpand">
+
+                                <Label
+                                    FontSize="18"
+                                    HorizontalOptions="StartAndExpand"
+                                    Style="{StaticResource RegularLabel}"
+                                    Text="13-Nov-2021"
+                                    VerticalOptions="CenterAndExpand" />
+
+                                <Label
+                                    FontSize="18"
+                                    HorizontalOptions="EndAndExpand"
+                                    Style="{StaticResource MediumLabel}"
+                                    Text="KES. 1000"
+                                    VerticalOptions="CenterAndExpand" />
+
+                            </StackLayout>
+
+                        </StackLayout>
+
+                    </Frame>
+
+                    <Frame
+                        Padding="5"
+                        BorderColor="LightGray"
+                        CornerRadius="2"
+                        HasShadow="False"
+                        HeightRequest="25">
+
+                        <StackLayout VerticalOptions="FillAndExpand">
+
+
+                            <StackLayout
+                                Grid.Column="1"
+                                HorizontalOptions="FillAndExpand"
+                                Orientation="Horizontal"
+                                VerticalOptions="CenterAndExpand">
+
+                                <Label
+                                    FontSize="18"
+                                    HorizontalOptions="StartAndExpand"
+                                    Style="{StaticResource RegularLabel}"
+                                    Text="13-Nov-2021"
+                                    VerticalOptions="CenterAndExpand" />
+
+                                <Label
+                                    FontSize="18"
+                                    HorizontalOptions="EndAndExpand"
+                                    Style="{StaticResource MediumLabel}"
+                                    Text="KES. 1000"
+                                    VerticalOptions="CenterAndExpand" />
+
+                            </StackLayout>
+
+                        </StackLayout>
+
+                    </Frame>
+
+                    <Frame
+                        Padding="5"
+                        BackgroundColor="{StaticResource Secondary}"
+                        BorderColor="{StaticResource Secondary}"
+                        CornerRadius="2"
+                        HasShadow="False"
+                        HeightRequest="25">
+
+                        <StackLayout VerticalOptions="FillAndExpand">
+
+
+                            <StackLayout
+                                Grid.Column="1"
+                                HorizontalOptions="FillAndExpand"
+                                Orientation="Horizontal"
+                                VerticalOptions="CenterAndExpand">
+
+                                <Label
+                                    FontSize="18"
+                                    HorizontalOptions="StartAndExpand"
+                                    Style="{StaticResource RegularLabel}"
+                                    Text="Total"
+                                    VerticalOptions="CenterAndExpand" />
+
+                                <Label
+                                    FontSize="18"
+                                    HorizontalOptions="EndAndExpand"
+                                    Style="{StaticResource MediumLabel}"
+                                    Text="KES. 1000"
+                                    VerticalOptions="CenterAndExpand" />
+
+                            </StackLayout>
+
+                        </StackLayout>
+
+                    </Frame>
+
+
+                </StackLayout>
+
+                <StackLayout Padding="10,0,10,10">
+                    <Label
+                        Margin="2,10,0,0"
+                        FontSize="20"
+                        Style="{StaticResource BoldLabel}"
+                        Text="2021-Nov" />
+
+                    <Frame
+                        Padding="5"
+                        BorderColor="LightGray"
+                        CornerRadius="2"
+                        HasShadow="False"
+                        HeightRequest="25">
+
+                        <StackLayout VerticalOptions="FillAndExpand">
+
+
+                            <StackLayout
+                                Grid.Column="1"
+                                HorizontalOptions="FillAndExpand"
+                                Orientation="Horizontal"
+                                VerticalOptions="CenterAndExpand">
+
+                                <Label
+                                    FontSize="18"
+                                    HorizontalOptions="StartAndExpand"
+                                    Style="{StaticResource RegularLabel}"
+                                    Text="13-Nov-2021"
+                                    VerticalOptions="CenterAndExpand" />
+
+                                <Label
+                                    FontSize="18"
+                                    HorizontalOptions="EndAndExpand"
+                                    Style="{StaticResource MediumLabel}"
+                                    Text="KES. 1000"
+                                    VerticalOptions="CenterAndExpand" />
+
+                            </StackLayout>
+
+                        </StackLayout>
+
+                    </Frame>
+
+                    <Frame
+                        Padding="5"
+                        BorderColor="LightGray"
+                        CornerRadius="2"
+                        HasShadow="False"
+                        HeightRequest="25">
+
+                        <StackLayout VerticalOptions="FillAndExpand">
+
+
+                            <StackLayout
+                                Grid.Column="1"
+                                HorizontalOptions="FillAndExpand"
+                                Orientation="Horizontal"
+                                VerticalOptions="CenterAndExpand">
+
+                                <Label
+                                    FontSize="18"
+                                    HorizontalOptions="StartAndExpand"
+                                    Style="{StaticResource RegularLabel}"
+                                    Text="13-Nov-2021"
+                                    VerticalOptions="CenterAndExpand" />
+
+                                <Label
+                                    FontSize="18"
+                                    HorizontalOptions="EndAndExpand"
+                                    Style="{StaticResource MediumLabel}"
+                                    Text="KES. 1000"
+                                    VerticalOptions="CenterAndExpand" />
+
+                            </StackLayout>
+
+                        </StackLayout>
+
+                    </Frame>
+
+                    <Frame
+                        Padding="5"
+                        BorderColor="LightGray"
+                        CornerRadius="2"
+                        HasShadow="False"
+                        HeightRequest="25">
+
+                        <StackLayout VerticalOptions="FillAndExpand">
+
+
+                            <StackLayout
+                                Grid.Column="1"
+                                HorizontalOptions="FillAndExpand"
+                                Orientation="Horizontal"
+                                VerticalOptions="CenterAndExpand">
+
+                                <Label
+                                    FontSize="18"
+                                    HorizontalOptions="StartAndExpand"
+                                    Style="{StaticResource RegularLabel}"
+                                    Text="13-Nov-2021"
+                                    VerticalOptions="CenterAndExpand" />
+
+                                <Label
+                                    FontSize="18"
+                                    HorizontalOptions="EndAndExpand"
+                                    Style="{StaticResource MediumLabel}"
+                                    Text="KES. 1000"
+                                    VerticalOptions="CenterAndExpand" />
+
+                            </StackLayout>
+
+                        </StackLayout>
+
+                    </Frame>
+
+                    <Frame
+                        Padding="5"
+                        BackgroundColor="{StaticResource Secondary}"
+                        BorderColor="{StaticResource Secondary}"
+                        CornerRadius="2"
+                        HasShadow="False"
+                        HeightRequest="25">
+
+                        <StackLayout VerticalOptions="FillAndExpand">
+
+
+                            <StackLayout
+                                Grid.Column="1"
+                                HorizontalOptions="FillAndExpand"
+                                Orientation="Horizontal"
+                                VerticalOptions="CenterAndExpand">
+
+                                <Label
+                                    FontSize="18"
+                                    HorizontalOptions="StartAndExpand"
+                                    Style="{StaticResource RegularLabel}"
+                                    Text="Total"
+                                    VerticalOptions="CenterAndExpand" />
+
+                                <Label
+                                    FontSize="18"
+                                    HorizontalOptions="EndAndExpand"
+                                    Style="{StaticResource MediumLabel}"
+                                    Text="KES. 1000"
+                                    VerticalOptions="CenterAndExpand" />
+
+                            </StackLayout>
+
+                        </StackLayout>
+
+                    </Frame>
+
+
+                </StackLayout>
+
+
+            </StackLayout>
+
+
+
+            <Button
+                AbsoluteLayout.LayoutBounds="0.95,0.95"
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                Clicked="Button_Clicked"
+                CornerRadius="{OnPlatform Android=60,
+                                          iOS=35}"
+                FontSize="25"
+                HeightRequest="{OnPlatform Android=60,
+                                           iOS=70}"
+                Text="+"
+                WidthRequest="{OnPlatform Android=60,
+                                          iOS=70}" />
+
+        </AbsoluteLayout>
+    </ContentView.Content>
+</ContentView>

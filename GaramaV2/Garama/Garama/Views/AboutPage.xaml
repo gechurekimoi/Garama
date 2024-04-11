@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Garama.Views.AboutPage"
+             xmlns:vm="clr-namespace:Garama.ViewModels"
+             Title="{Binding Title}"
+             BackgroundColor="{StaticResource Background}"
+             Shell.NavBarIsVisible="False"
+             xmlns:xct="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:tabView="clr-namespace:Syncfusion.Maui.TabView;assembly=Syncfusion.Maui.TabView"
+             xmlns:contentView="clr-namespace:Garama.ContentViews.Home"
+             xmlns:ExpensesView="clr-namespace:Garama.ContentViews.Expenses"
+             xmlns:IncomeView="clr-namespace:Garama.ContentViews.Income"
+             xmlns:ListCollection="clr-namespace:System.Collections.Generic;assembly=netstandard"
+             xmlns:customRender="clr-namespace:Garama.CustomRenders" 
+             >
+
+
+
+    <ContentPage.BindingContext>
+        <vm:AboutViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+
+        <ResourceDictionary>
+
+
+            <Style TargetType="StackLayout" x:Key="TabViewStackLayout">
+                <Setter Property="Spacing" Value="0" ></Setter>
+                <Setter Property="Padding" Value="5" ></Setter>
+            </Style>
+
+
+            <Style TargetType="Image" x:Key="TabViewIcon">
+                <Setter Property="VerticalOptions" Value="StartAndExpand" ></Setter>
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand" ></Setter>
+                <Setter Property="HeightRequest" Value="20" ></Setter>
+            </Style>
+
+
+            <Style TargetType="Label" x:Key="TabViewLabel" BasedOn="{StaticResource MediumLabel}">
+                <Setter Property="VerticalOptions" Value="End" ></Setter>
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand" ></Setter>
+                <Setter Property="FontSize" Value="Micro" ></Setter>
+            </Style>
+
+        </ResourceDictionary>
+
+    </ContentPage.Resources>
+
+    
+    <StackLayout Margin="0,20,0,0">
+
+        <!--<Button Text="Initialize Data Sync"
+              Clicked="Button_Clicked"/>
+
+        <Button Text="Generate Token"
+              Clicked="Button_Clicked_1"
+                />
+
+        <Button Text="Get Data"
+              Clicked="Button_Clicked_2"
+                />-->
+
+
+        <tabView:SfTabView BackgroundColor="{StaticResource Background}" 
+                           VerticalOptions="FillAndExpand"
+                           TabBarPlacement="Bottom"
+                           IndicatorBackground="{StaticResource Secondary}"
+                           >
+
+            <!--<tabView:SfTabView.SelectionIndicatorSettings>
+                
+                <tabView:SelectionIndicatorSettings
+                    Color="{StaticResource DefaultTextColor}" 
+                    Position="Top" 
+                    StrokeThickness="2"/>
+                
+            </tabView:SfTabView.SelectionIndicatorSettings>-->
+
+            
+            <tabView:SfTabItem Header="Home" ImageSource="home" >
+
+
+                <tabView:SfTabItem.Content>
+
+                    <StackLayout>
+                        <contentView:HomeContentView />
+                    </StackLayout>
+                    
+                </tabView:SfTabItem.Content>
+                
+            </tabView:SfTabItem>
+            
+            
+            <tabView:SfTabItem Header="Expenses" ImageSource="expenses" >
+                
+                <tabView:SfTabItem.Content>
+                    <ExpensesView:ExpenseListView />
+                </tabView:SfTabItem.Content>
+                
+            </tabView:SfTabItem>
+
+
+            <tabView:SfTabItem Header="Income" ImageSource="income" >
+
+                <tabView:SfTabItem.Content>
+                    <IncomeView:IncomeList />
+                </tabView:SfTabItem.Content>
+
+            </tabView:SfTabItem>
+
+
+            <tabView:SfTabItem Header="Budget" ImageSource="budgeting">
+
+                
+                <tabView:SfTabItem.Content>
+                    <Grid BackgroundColor="Green"  />
+                </tabView:SfTabItem.Content>
+
+            </tabView:SfTabItem>   
+            
+            
+            <tabView:SfTabItem Header="Others" ImageSource="menu">
+
+                <tabView:SfTabItem.Content>
+                    <Grid BackgroundColor="Green"  />
+                </tabView:SfTabItem.Content>
+
+            </tabView:SfTabItem>
+
+
+          
+        </tabView:SfTabView>
+
+
+
+
+
+
+    </StackLayout>
+
+</ContentPage>

@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Garama.Views.AddExpensePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ListCollection="clr-namespace:System.Collections.Generic;assembly=netstandard"
+    xmlns:customRender="clr-namespace:Garama.CustomRenders">
+    <ContentPage.Content>
+        <StackLayout Margin="20" Spacing="30">
+
+            <Image
+                Margin="0,15,0,0"
+                HeightRequest="20"
+                HorizontalOptions="EndAndExpand"
+                Source="close"
+                VerticalOptions="Start">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                </Image.GestureRecognizers>
+            </Image>
+
+
+            <StackLayout Margin="0,-10,0,0">
+
+                <Label Style="{StaticResource MediumLabel}" Text="Category" />
+
+                <ScrollView
+                    Margin="0"
+                    Padding="0"
+                    HorizontalScrollBarVisibility="Never"
+                    Orientation="Horizontal"
+                    VerticalOptions="Start">
+                    
+                    <!--<buttons:SfChipGroup
+                        ChipPadding="0"
+                        ChoiceMode="Single"
+                        SelectedChipBackgroundColor="{StaticResource Secondary}"
+                        SelectedChipTextColor="{StaticResource DefaultTextColor}"
+                        Type="Choice">
+                        <buttons:SfChipGroup.ItemsSource>
+                            <ListCollection:List x:TypeArguments="x:String">
+
+                                <x:String>Transport</x:String>
+                                <x:String>Food</x:String>
+                                <x:String>Rent</x:String>
+                                <x:String>Electricity</x:String>
+
+                            </ListCollection:List>
+                        </buttons:SfChipGroup.ItemsSource>
+
+                        <buttons:SfChipGroup.ChipLayout>
+                            <StackLayout
+                                Margin="0"
+                                Padding="5"
+                                HorizontalOptions="FillAndExpand"
+                                Orientation="Horizontal"
+                                Spacing="10"
+                                VerticalOptions="FillAndExpand" />
+                        </buttons:SfChipGroup.ChipLayout>
+                    </buttons:SfChipGroup>-->
+                    
+                </ScrollView>
+
+            </StackLayout>
+
+
+
+            <StackLayout>
+
+                <Label Style="{StaticResource MediumLabel}" Text="Date" />
+
+                <!--<border:SfBorder Style="{StaticResource sfBorder}" VerticalOptions="Start">-->
+
+                    <customRender:DatePickerNoBorder
+                        Margin="{OnPlatform Android='10,0,0,0'}"
+                        Format="dd-MMM-yyyy"
+                        HeightRequest="45"
+                        Style="{StaticResource BorderlessEntry}" />
+
+                <!--</border:SfBorder>-->
+
+            </StackLayout>
+
+
+            <StackLayout>
+
+                <Label Style="{StaticResource MediumLabel}" Text="Amount" />
+
+                <!--<border:SfBorder Style="{StaticResource sfBorder}" VerticalOptions="Start">-->
+
+                    <customRender:EntryNoBorder
+                        HeightRequest="45"
+                        Keyboard="Numeric"
+                        Style="{StaticResource BorderlessEntry}" />
+
+                <!--</border:SfBorder>-->
+
+            </StackLayout>
+
+
+
+            <Button Text="Save Expense" />
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
